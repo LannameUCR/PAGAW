@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<BaseDatos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <baseBI>PAGAW_DB</baseBI>
+  <baseLogin>Login</baseLogin>
+  <servidorBI>163.178.173.148</servidorBI>
+  <usuarioBI>estudiantes</usuarioBI>
+  <contrasenaBI>estudiantes</contrasenaBI>
+  <servidorLogin>163.178.106.21</servidorLogin>
+  <usuarioLogin>sa</usuarioLogin>
+  <contrasenaLogin>sa123!!</contrasenaLogin>
+</BaseDatos>
