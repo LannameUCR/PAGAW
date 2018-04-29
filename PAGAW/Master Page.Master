@@ -33,7 +33,7 @@
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.bootstrap.min.css" rel="stylesheet" />
     <link href="http://protostrap.com/Assets/gv/css/gv.bootstrap-form.css" rel="stylesheet" type="text/css" />
     
-    <title>Control de Bienes Institucionales</title>
+    <title>PAGAW</title>
      <link rel="icon" href='<%=Page.ResolveUrl("~/Imagenes/favicon.ico") %>' />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>

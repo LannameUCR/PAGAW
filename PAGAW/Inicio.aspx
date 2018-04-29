@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
-    <form action="../submit" id="formentry" class="form-horizontal" role="form">
+   
         <div class="container_filtros">
             <div class="row">
                 <div class="row">
@@ -48,7 +48,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    
 
     <div class="panel panel-default apps">
         <div class="panel-heading">
@@ -61,12 +61,15 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
-                            <div class="panel-heading" style="background-color: #88b312;">UTI</div>
+                            <div class="panel-heading" style="background-color: #88b312;">
+                                <asp:Label ID="ldl_unidad_app" runat="server">UTI</asp:Label>
+                                 </div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <asp:Image runat="server"  id="Image_app" ImageUrl="/Imagenes/item1.png" class="img-responsive" style="width: 100%" alt="Image"/>
+                                    
                                     <div class="overlay">
-
+                                        
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
@@ -75,8 +78,9 @@
 
                             <div class="panel-footer "  id="des">
                                 <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
+                            <asp:Label ID="lsb_descripcion" runat="server" Text="Label" style="text-align: justify; "></asp:Label>
+                                <p >
                                 </p><a>Ver más</a>
 
                             </div>
@@ -206,8 +210,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </asp:Content>
 
