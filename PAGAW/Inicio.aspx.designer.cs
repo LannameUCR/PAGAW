@@ -22,30 +22,12 @@ namespace PAGAW {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// ldl_unidad_app control.
+        /// repiterApps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ldl_unidad_app;
-        
-        /// <summary>
-        /// Image_app control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image_app;
-        
-        /// <summary>
-        /// lsb_descripcion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lsb_descripcion;
+        protected global::System.Web.UI.WebControls.Repeater repiterApps;
     }
 }
