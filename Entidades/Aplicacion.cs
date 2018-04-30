@@ -20,7 +20,9 @@ namespace Entidades
 
         public String paquete { get; set; }
         public String url { get; set; }
-      
+
+        public String estado { get; set; }
+
         public String servidor { get; set; }
         public String imagenUrl { get; set; }
       

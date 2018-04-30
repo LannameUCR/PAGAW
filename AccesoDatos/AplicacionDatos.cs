@@ -40,11 +40,16 @@ namespace AccesoDatos
                 app.descrp_corta = reader["descripcion_corta_app"].ToString();
                 app.descrp_larga = reader["descripcion_larga_app"].ToString();
                 app.paquete = reader["paquete_instalacion"].ToString();
+                app.codigo = reader["codigo_aplicacion"].ToString();
+
+                
                 app.url = reader["url"].ToString();
                 app.imagenUrl = reader["imagen"].ToString();
                 app.servidor = reader["tipo_servidor"].ToString();
-               
-               
+                app.estado = reader["habilitado_aplicacion"].ToString();
+
+
+
 
                 listaApps.Add(app);
 

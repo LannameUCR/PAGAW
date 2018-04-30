@@ -96,6 +96,14 @@
   <ItemGroup>
     <Content Include="Administracion\aplicaciones.asmx" />
     <Content Include="ArchivoBaseDatos.txt" />
+    <Content Include="Content\DataTables\datatables.min.css" />
+    <Content Include="Content\DataTables\Images\details_close.png" />
+    <Content Include="Content\DataTables\Images\details_open.png" />
+    <Content Include="Content\DataTables\Images\sort_asc.png" />
+    <Content Include="Content\DataTables\Images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTables\Images\sort_both.png" />
+    <Content Include="Content\DataTables\Images\sort_desc.png" />
+    <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -165,20 +173,26 @@
     <Content Include="Imagenes\ucr.png" />
     <Content Include="Scripts\abrirfile.js" />
     <Content Include="Scripts\bootbox.min.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.js" />
-    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap-dialog.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\buscador.js" />
-    <Content Include="Scripts\Calendario.js" />
-    <Content Include="Scripts\Calendario2.min.js" />
     <Content Include="Scripts\collapse.js" />
     <Content Include="Scripts\dataSourcePlugins.js" />
     <Content Include="Scripts\datatables.min.js" />
     <Content Include="Scripts\Dialogo.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\table\bootstrap.min.css" />
+    <Content Include="Scripts\table\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\table\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\table\dataTables.fixedHeader.min.js" />
+    <Content Include="Scripts\table\dataTables.responsive.min.js" />
+    <Content Include="Scripts\table\fixedHeader.bootstrap.min.css" />
+    <Content Include="Scripts\table\jquery-1.12.4.js" />
+    <Content Include="Scripts\table\jquery.dataTables.min.js" />
+    <Content Include="Scripts\table\responsive.bootstrap.min.css" />
+    <Content Include="Scripts\table\responsive.bootstrap.min.js" />
     <Content Include="Scripts\transition.js" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
