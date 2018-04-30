@@ -1,61 +1,48 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PAGAW.WebForm1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-
-   
-        <div class="container_filtros">
+    <div class="container_filtros">
+        <div class="row">
             <div class="row">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <asp:Label runat="server" class="control-label control-label-left col-sm-3" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
-                                    <div class="controls col-sm-9">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <asp:Label runat="server" class="control-label control-label-left col-sm-3" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
+                                <div class="controls col-sm-9">
 
-                                        <select id="selc_unidad_administrativa" class="form-control" data-role="select">
-                                            <option value="">UTI</option>
-                                            <option value="Option 1">Option 1</option>
-                                            <option value="Option 2">Option 2</option>
-                                            <option value="Option 3">Option 3</option>
-                                            <option value="Option 4">Option 4</option>
-                                        </select><span id="errId1" class="error"></span>
-                                    </div>
-
+                                    <select id="selc_unidad_administrativa" class="form-control" data-role="select">
+                                        <option value="">UTI</option>
+                                        <option value="Option 1">Option 1</option>
+                                        <option value="Option 2">Option 2</option>
+                                        <option value="Option 3">Option 3</option>
+                                        <option value="Option 4">Option 4</option>
+                                    </select><span id="errId1" class="error"></span>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label control-label-left col-sm-3" for="app_search">Aplicación</label>
-                                    <div class="controls col-sm-9">
-
-                                        <div id="field2" class="input-group">
-                                            <input type="text" class="form-control" data-role="lookup" placeholder="CBI" name="app_search" id="app_search">
-                                            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
                         </div>
-
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label control-label-left col-sm-3" for="app_search">Aplicación</label>
+                                <div class="controls col-sm-9">
+                                    <div id="field2" class="input-group">
+                                        <input type="text" class="form-control" data-role="lookup" placeholder="CBI" name="app_search" id="app_search" />
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    
-
+    </div>
     <div class="panel panel-default apps">
         <div class="panel-heading">
             <h3 class="panel-title">Aplicaciones</h3>
         </div>
         <div class="panel-body">
-
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <div class="container">
                 <div class="row">
@@ -63,147 +50,136 @@
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">
                                 <asp:Label ID="ldl_unidad_app" runat="server">UTI</asp:Label>
-                                 </div>
+                            </div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <asp:Image runat="server"  id="Image_app" ImageUrl="/Imagenes/item1.png" class="img-responsive" style="width: 100%" alt="Image"/>
-                                    
+                                    <asp:Image runat="server" ID="Image_app" ImageUrl="/Imagenes/item1.png" class="img-responsive" Style="width: 100%" alt="Image" />
+
                                     <div class="overlay">
-                                        
+
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                    The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                            <asp:Label ID="lsb_descripcion" runat="server" Text="Label" style="text-align: justify; "></asp:Label>
-                                <p >
-                                </p><a>Ver más</a>
-
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
+                            <asp:Label ID="lsb_descripcion" runat="server" Text="Label" Style="text-align: justify;"></asp:Label>
+                                <p>
+                                </p>
+                                <a>Ver más</a>
                             </div>
                         </div>
                     </div>
-                      <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">UTI</div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image"/>
                                     <div class="overlay">
-
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                <p style="text-align: justify;">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
                                 </p>
-
                             </div>
                         </div>
                     </div>
-                        <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">UTI</div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image"/>
                                     <div class="overlay">
-
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                <p style="text-align: justify;">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
                                 </p>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <br>
-
+            <br/>
             <div class="container">
                 <div class="row">
-                     <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">UTI</div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image"/>
                                     <div class="overlay">
-
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                <p style="text-align: justify;">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
                                 </p>
-
                             </div>
                         </div>
                     </div>
-                     <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">UTI</div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image"/>
                                     <div class="overlay">
-
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                <p style="text-align: justify;">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
                                 </p>
-
                             </div>
                         </div>
                     </div>
-                     <div class="col-sm-4">
+                    <div class="col-sm-4">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">UTI</div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
+                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image"/>
                                     <div class="overlay">
-
                                         <a class="info" href="#">Ejecutar</a>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <div class="panel-footer "  id="des">
-                                <div ><p style="text-align:center; font-weight:bold;">Descripción</p></div>
-                                <p style="text-align: justify; ">
+                            <div class="panel-footer " id="des">
+                                <div>
+                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
+                                </div>
+                                <p style="text-align: justify;">
                                     The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
                                 </p>
-
                             </div>
                         </div>
                     </div>
@@ -212,6 +188,5 @@
         </div>
     </div>
 </asp:Content>
-
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">
 </asp:Content>
