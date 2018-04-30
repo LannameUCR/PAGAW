@@ -71,8 +71,8 @@
                 </HeaderTemplate>
                 <ItemTemplate>
 
-            <%# (Container.ItemIndex +1) % 4 == 0 ? "<HeaderTemplate> <div class='container'><div class='row'></HeaderTemplate>  <FooterTemplate> </div> </div> </FooterTemplate>" : string.Empty %>
-         
+                    <%# (Container.ItemIndex +1) % 4 == 0 ? "<HeaderTemplate> <div class='container'><div class='row'></HeaderTemplate>  <FooterTemplate> </div> </div> </FooterTemplate>" : string.Empty %>
+
                     <div class="col-sm-4 ">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">
@@ -115,143 +115,7 @@
     </div>
 
 
-    <!--
-                      <div class="col-sm-4">
-                          <div class="panel panel-primary selector" style="border-color: #88b312;">
-                              <div class="panel-heading" style="background-color: #88b312;">UTI</div>
-                              <div class="panel-body">
-                                  <div class="hovereffect">
-                                      <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
-                                      <div class="overlay">
 
-                                          <a class="info" href="#">Ejecutar</a>
-                                      </div>
-                                  </div>
-
-                              </div>
-
-                              <div class="panel-footer " id="des">
-                                  <div>
-                                      <p style="text-align: center; font-weight: bold;">Descripción</p>
-                                  </div>
-                                  <p style="text-align: justify;">
-                                      The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                                  </p>
-
-                              </div>
-                          </div>
-                      </div>
-            <div class="col-sm-4">
-                <div class="panel panel-primary selector" style="border-color: #88b312;">
-                    <div class="panel-heading" style="background-color: #88b312;">UTI</div>
-                    <div class="panel-body">
-                        <div class="hovereffect">
-                            <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
-                            <div class="overlay">
-
-                                <a class="info" href="#">Ejecutar</a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="panel-footer " id="des">
-                        <div>
-                            <p style="text-align: center; font-weight: bold;">Descripción</p>
-                        </div>
-                        <p style="text-align: justify;">
-                            The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                        </p>
-
-                    </div>
-                </div>
-            </div>
-            </div>
-            </div>
-            <br>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="panel panel-primary selector" style="border-color: #88b312;">
-                            <div class="panel-heading" style="background-color: #88b312;">UTI</div>
-                            <div class="panel-body">
-                                <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
-                                    <div class="overlay">
-
-                                        <a class="info" href="#">Ejecutar</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="panel-footer " id="des">
-                                <div>
-                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
-                                </div>
-                                <p style="text-align: justify;">
-                                    The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-primary selector" style="border-color: #88b312;">
-                            <div class="panel-heading" style="background-color: #88b312;">UTI</div>
-                            <div class="panel-body">
-                                <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
-                                    <div class="overlay">
-
-                                        <a class="info" href="#">Ejecutar</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="panel-footer " id="des">
-                                <div>
-                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
-                                </div>
-                                <p style="text-align: justify;">
-                                    The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="panel panel-primary selector" style="border-color: #88b312;">
-                            <div class="panel-heading" style="background-color: #88b312;">UTI</div>
-                            <div class="panel-body">
-                                <div class="hovereffect">
-                                    <img src='<%=Page.ResolveUrl("~/Imagenes/item1.png") %>' class="img-responsive" style="width: 100%" alt="Image">
-                                    <div class="overlay">
-
-                                        <a class="info" href="#">Ejecutar</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="panel-footer " id="des">
-                                <div>
-                                    <p style="text-align: center; font-weight: bold;">Descripción</p>
-                                </div>
-                                <p style="text-align: justify;">
-                                    The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">
