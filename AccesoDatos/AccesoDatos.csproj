@@ -41,8 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AplicacionDatos.cs" />
+    <Compile Include="ConexionDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnidadAdministrativaDatos.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{A99E7602-1A39-4894-B8C2-B03D5349310B}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
