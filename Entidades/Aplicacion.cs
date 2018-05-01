@@ -9,22 +9,16 @@ namespace Entidades
     public class Aplicacion
     {
         public int idApp { get; set; }
-        public String nombre { get; set; }
+        public String nombre_largo { get; set; }
+        public String nombre_corto { get; set; }
         public String descrp_larga { get; set; }
         public String descrp_corta { get; set; }
-      
         public String version { get; set; }
-
         public String habilitado { get; set; }
         public String codigo { get; set; }
-
         public String paquete { get; set; }
         public String url { get; set; }
-
-        public String estado { get; set; }
-
         public String servidor { get; set; }
-        public String imagenUrl { get; set; }
-      
+        public String imagenUrl { get; set; }     
     }
 }

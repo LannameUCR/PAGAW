@@ -13,13 +13,11 @@ namespace Entidades
     public class Archivo
     {
         string ruta = System.AppDomain.CurrentDomain.BaseDirectory + "ArchivoBaseDatos.txt";
-
         /*Lucrecia Zuñiga Sae
          29/04/2018
          Metodo que guarda en un archivo los datos de la base de datos*/
         public void guardarArchivo(BaseDatos baseDatos)
         {
-
             FileStream stream = new FileStream(ruta, FileMode.Create);
             XmlSerializer serializer = new XmlSerializer(baseDatos.GetType());
             serializer.Serialize(stream, baseDatos);
@@ -35,7 +33,6 @@ namespace Entidades
             BaseDatos baseDatos = new BaseDatos();
             try
             {
-
                 XmlSerializer serializer = new XmlSerializer(baseDatos.GetType());
                 baseDatos = (BaseDatos)serializer.Deserialize(stream);
                 stream.Close();

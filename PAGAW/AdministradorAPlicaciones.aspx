@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAPlicaciones.aspx.cs" Inherits="PAGAW.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAplicaciones.aspx.cs" Inherits="PAGAW.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -38,9 +38,9 @@
     
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
-    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
-    <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
-         --%>
+        <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
+        <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
+      --%>
   
 
 

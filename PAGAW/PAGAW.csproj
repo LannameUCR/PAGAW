@@ -144,7 +144,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="AdministradorAPlicaciones.aspx" />
+    <Content Include="AdministradorAplicaciones.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,12 +218,12 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdministradorAPlicaciones.aspx.cs">
-      <DependentUpon>AdministradorAPlicaciones.aspx</DependentUpon>
+    <Compile Include="AdministradorAplicaciones.aspx.cs">
+      <DependentUpon>AdministradorAplicaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdministradorAPlicaciones.aspx.designer.cs">
-      <DependentUpon>AdministradorAPlicaciones.aspx</DependentUpon>
+    <Compile Include="AdministradorAplicaciones.aspx.designer.cs">
+      <DependentUpon>AdministradorAplicaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

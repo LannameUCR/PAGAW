@@ -11,7 +11,6 @@ namespace AccesoDatos
         Archivo archivo = new Archivo();
         public SqlConnection conexionLogin()
         { 
-
             baseDatos = archivo.leerArchivo();
 
             SqlConnection conn = new SqlConnection();
@@ -25,9 +24,9 @@ namespace AccesoDatos
         /*
          * Lucrecia Zuñiga Sae
          29/04/201
-     *
-     *Metodo que lee el del archivo los datos del servidor y establece la coneccion 
-     */
+         *
+         *Metodo que lee el del archivo los datos del servidor y establece la coneccion 
+         */
         public SqlConnection conexionBI()
         {
             baseDatos = archivo.leerArchivo();
@@ -37,10 +36,6 @@ namespace AccesoDatos
 
             conn.ConnectionString = ConnStr;
             return conn;
-        }
-
-
-     
-
+        }     
     }
 }

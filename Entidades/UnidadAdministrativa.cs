@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class UnidadAdministrativa
+    public class UnidadAdministrativa
     {
+        public int id_ua { get; set; }
+        public string nombre_ua { get; set; }
+        public string descripcion_larga { get; set; }
+        public string descripcion_corta { get; set; }
     }
 }

@@ -19,6 +19,5 @@ namespace Entidades
         public String servidorLogin { get; set; }
         public String usuarioLogin { get; set; }
         public String contrasenaLogin { get; set; }
-
     }
 }
