@@ -53,9 +53,6 @@
         <div class="panel-body">
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <asp:Repeater ID="repiterApps" runat="server">
-
-
-
                 <HeaderTemplate>
                     <div class="container">
 
