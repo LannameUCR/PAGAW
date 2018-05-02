@@ -2,7 +2,10 @@
 <asp:Content ID="ContentFormActualizarAplicacion" ContentPlaceHolderID="ContentFormActualizarAplicacion" runat="server">
     <div class="divRedondo col-sm-6">
     
-            <div class="form-group row">
+
+            <asp:TextBox ID="txtIdApp" class="form-control" placeholder="Nombre largo" runat="server" CssClass="hidden"></asp:TextBox>
+            
+        <div class="form-group row">
                 <asp:Label runat="server" class="col-sm-2 col-form-label" for="Nombre Largo">Nombre largo</asp:Label>
                 <div class="col-sm-10">
                     <asp:TextBox ID="txtNombreLargo" class="form-control" placeholder="Nombre largo" runat="server"></asp:TextBox>

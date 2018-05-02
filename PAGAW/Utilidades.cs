@@ -174,15 +174,16 @@ namespace PAGAW
                 page.Session.RemoveAll();
                 page.Session.Abandon();
                 page.Session.Clear();
-                String url = page.ResolveUrl("~/login.aspx");
+                String url = page.ResolveUrl("~/Inicio.aspx");
                 page.Response.Redirect(url);
             }
-            else if (rol == 2)
+            else if (rol == 1)
             {
                 if (rolesPermitidos.Contains(rol))
                 {
                     page.Master.FindControl("MenuAdministrador").Visible = true;
                //     page.Master.FindControl("MenuUsuario").Visible = false;
+
                 }
                 else
                 {

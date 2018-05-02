@@ -38,16 +38,19 @@ namespace PAGAW.Administracion
             string pathZIP = path + "ZIP\\zip";
             string pathPaquete = path + "PAQUETE\\codigo";
             string imagePath = SaveFile(fuImagen, anno, pathImage);
+
             string zipPath = SaveFile(fupCodigoZip, anno, pathZIP);
             string paquetePath = SaveFile(fuCodigoFuente, anno, pathPaquete);
            
-          
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
 
             Aplicacion aplicacion = new Aplicacion(0, txtNombreLargo.Text, txtNombreCorto.Text, txtDescripcion_larga.Text, txtDescripcion_corta.Text,
             txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor, "", imagePath);
 
             appServicios.insertarAplicacion(aplicacion);
+
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+            Response.Redirect(url);
         }
 
         public static string SaveFile(System.Web.UI.WebControls.FileUpload fuImagen, int year, string path)
@@ -91,7 +94,8 @@ namespace PAGAW.Administracion
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../AdministradorAplicaciones.aspx");
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+            Response.Redirect(url);
         }
     }
 }

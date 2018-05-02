@@ -13,6 +13,15 @@ namespace PAGAW.Administracion {
     public partial class ActualizarAplicacion {
         
         /// <summary>
+        /// txtIdApp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdApp;
+        
+        /// <summary>
         /// txtNombreLargo control.
         /// </summary>
         /// <remarks>
