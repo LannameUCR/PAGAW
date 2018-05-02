@@ -43,6 +43,9 @@ namespace PAGAW.Administracion
             txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor, "", imagePath);
 
             appServicios.insertarAplicacion(aplicacion);
+
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+            Response.Redirect(url);
         }
 
         public static string SaveFile(System.Web.UI.WebControls.FileUpload fuImagen, int year, string path)
@@ -86,7 +89,8 @@ namespace PAGAW.Administracion
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../AdministradorAplicaciones.aspx");
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+            Response.Redirect(url);
         }
     }
 }
