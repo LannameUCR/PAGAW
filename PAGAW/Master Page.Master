@@ -110,7 +110,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href='<%=Page.ResolveUrl("~/AdministradorUnidadAdministrativa.aspx") %>'>Gestionar Uniadad Administrativa</a>
+                                        <a href='<%=Page.ResolveUrl("~/AdministradorUnidadAdministrativa.aspx") %>'>Gestionar Unidad Administrativa</a>
                                     </li>
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/Administracion/Ayuda.aspx") %>'>Ayuda</a>
