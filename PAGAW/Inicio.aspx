@@ -22,13 +22,9 @@
                                 <asp:Label runat="server" class="control-label control-label-left col-sm-3" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
                                 <div class="controls col-sm-9">
 
-                                    <select id="selc_unidad_administrativa" class="form-control" data-role="select">
-                                        <option value="">UTI</option>
-                                        <option value="Option 1">Option 1</option>
-                                        <option value="Option 2">Option 2</option>
-                                        <option value="Option 3">Option 3</option>
-                                        <option value="Option 4">Option 4</option>
-                                    </select><span id="errId1" class="error"></span>
+                                    <asp:DropDownList ID="selec_unidad_administrativa" class="form-control" runat="server" OnSelectedIndexChanged="selec_unidad_administrativa_SelectedIndexChanged">
+                                        
+                                    </asp:DropDownList>
                                 </div>
 
                             </div>
@@ -88,10 +84,10 @@
                                     <p style="text-align: center; font-weight: bold;">Descripción</p>
                                 </div>
                                
-                            <asp:Label ID="lsb_descripcion" runat="server"  Style="text-align: justify;"><%# Eval("descrp_corta") %></asp:Label>
+                            <asp:Label ID="lsb_descripcion" runat="server"  Style="text-align: justify;"><%# Eval("descripcion_corta_app") %></asp:Label>
                                 <p>
                                 </p>
-                               <a style=" cursor: pointer;" data-toggle="modal" data-target="#showDescripcion" data-url="<%# Eval("url") %>" data-name="<%# Eval("nombre") %>"  data-whatever="<%# Eval("descrp_larga") %>" title="Ver más">Ver más</a>
+                               <a style=" cursor: pointer;" data-toggle="modal" data-target="#showDescripcion" data-url="<%# Eval("url") %>" data-name="<%# Eval("nombre_largo_aplicacion") %>"  data-whatever="<%# Eval("descripcion_larga_app") %>" title="Ver más">Ver más</a>
                               
 
                             </div>

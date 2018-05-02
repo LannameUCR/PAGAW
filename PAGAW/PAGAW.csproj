@@ -95,9 +95,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administracion\ActualizarAplicacion.aspx" />
     <Content Include="Administracion\aplicaciones.asmx" />
     <Content Include="Administracion\EliminarAplicacion.aspx" />
     <Content Include="Administracion\EliminarUnidadAdministrativa.aspx" />
+    <Content Include="Administracion\InsertarAplicacion.aspx" />
     <Content Include="AdministradorUnidadAdministrativa.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
     <Content Include="Content\DataTables\datatables.min.css" />
@@ -206,6 +208,13 @@
     <Content Include="Inicio.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administracion\ActualizarAplicacion.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ActualizarAplicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ActualizarAplicacion.aspx.designer.cs">
+      <DependentUpon>ActualizarAplicacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administracion\aplicaciones.asmx.cs">
       <DependentUpon>aplicaciones.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -223,6 +232,13 @@
     </Compile>
     <Compile Include="Administracion\EliminarUnidadAdministrativa.aspx.designer.cs">
       <DependentUpon>EliminarUnidadAdministrativa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\InsertarAplicacion.aspx.cs">
+      <DependentUpon>InsertarAplicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\InsertarAplicacion.aspx.designer.cs">
+      <DependentUpon>InsertarAplicacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdministradorUnidadAdministrativa.aspx.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>

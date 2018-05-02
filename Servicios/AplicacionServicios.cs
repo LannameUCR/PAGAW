@@ -20,9 +20,30 @@ namespace Servicios
 
         }
 
+        public List<Aplicacion> getAplicacionPorNombre(string nombreAplicacion)
+        {
+            return appoDatos.getAplicacionPorNombre(nombreAplicacion);
+        }
+
+        public List<Aplicacion> getAplicacionPorUnidadAdministrativa(int nombreUnidadAdministrativa)
+        {
+            return appoDatos.getAplicacionPorUnidadAdministrativa(nombreUnidadAdministrativa);
+        }
+
         public void eliminarAplicacion(Aplicacion appElimimar)
         {
             appoDatos.EliminarApplicacion(appElimimar);
+        }
+
+
+        public void insertarAplicacion(Aplicacion appInsertar)
+        {
+            appoDatos.InsertarApplicacion(appInsertar);
+        }
+
+        public void actualizarAplicacion(Aplicacion appInsertar)
+        {
+            appoDatos.ActualizarApplicacion(appInsertar);
         }
     }
 }
