@@ -19,10 +19,9 @@ namespace PAGAW
                 Page.Master.FindControl("sessionLink").Visible = false;   
                 Page.Master.FindControl("username").Visible = true;
                 Page.Master.FindControl("BtnSalir").Visible = true;
-
             }
             else {
-
+                
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)

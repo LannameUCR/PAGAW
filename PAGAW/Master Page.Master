@@ -136,7 +136,7 @@
                                 </li>
 
                                 <li>
-                                    <asp:LinkButton ID="sessionLink"  OnClick="btnLogin_Click" class="session" runat="server" href='/Login.aspx' >Iniciar Sesión</asp:LinkButton>
+                                    <asp:LinkButton ID="sessionLink" OnClick ="btnLogin_Click" class="session" runat="server" href='/Login.aspx' >Iniciar Sesión</asp:LinkButton>
                                     <asp:Button ID="BtnSalir" visible="false" runat="server" CssClass="btn btn-primary" Text="Salir" OnClick="BtnSalir_Click" CausesValidation="False" UseSubmitBehavior="False" />
                                 </li>
                             </ul>
