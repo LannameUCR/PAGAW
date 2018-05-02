@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\aplicaciones.asmx" />
+    <Content Include="AdministradorUnidadAdministrativa.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
     <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Content\DataTables\Images\details_close.png" />
@@ -202,6 +203,13 @@
     <Compile Include="Administracion\aplicaciones.asmx.cs">
       <DependentUpon>aplicaciones.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdministradorUnidadAdministrativa.aspx.cs">
+      <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministradorUnidadAdministrativa.aspx.designer.cs">
+      <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master Page.Master.cs">
       <DependentUpon>Master Page.Master</DependentUpon>

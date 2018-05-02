@@ -12,12 +12,12 @@ namespace Servicios
     {
         #region variables globales
         AplicacionDatos appoDatos = new AplicacionDatos();
-        #endregion
+        #endregion       
 
         public List<Aplicacion> getApps()
         {
             return appoDatos.getApps();
 
-        }
+        }        
     }
 }

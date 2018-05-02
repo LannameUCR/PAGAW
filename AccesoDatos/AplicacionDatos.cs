@@ -22,7 +22,7 @@ namespace AccesoDatos
 
             String sql = "";
 
-            sql = "get_aplicaciones";
+            sql = "sp_obtener_aplicaciones";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAplicaciones.aspx.cs" Inherits="PAGAW.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorUnidadAdministrativa.aspx.cs" Inherits="PAGAW.AdministradorUnidadAdministrativa" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -8,143 +8,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cleartype" content="on" />
     <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
-  
+
 
     <link href="css/Lanamme.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link href="Scripts/Table//responsive.bootstrap.min.css" rel="stylesheet" />
 
-  
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
- 
-      <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
+
+    <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
-         <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
-    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
+    <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
+    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />
     <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
     <link href="Scripts/Table/datatables.min.css" rel="stylesheet" />
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
+    <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
 
 
-      
-      <%--
-
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery-1.12.4.js") %>'></script>
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery.dataTables.min.js") %>'></script>
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
-    
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
-        <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
-        <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
-      --%>
-  
 
 
-  
+
+
 
     <div class="panel panel-default apps">
         <div class="panel-heading">
-            <h3 class="panel-title">Aplicaciones</h3>
+            <h3 class="panel-title">Unidades Administrativas</h3>
         </div>
         <div class="panel-body">
             <div class="divRedondo">
-                <div class="row">
-
+                <div class="row">                                           
                     <%-- Aqui agregamos los valores del objeto para que sea reconocibles --%>
-                    <div class="col-md-12 col-xs-12 col-sm-12">
-                        <center>
-            <asp:Label ID="lblNombreInventarioConsolidado" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
-        </center>
+                    <div class="col-md-12 col-xs-12 col-sm-12">                        
+                        <asp:Label ID="lblNombreInventarioConsolidado" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>                        
                     </div>
 
                     <%# Eval("nombre") %>
                     <input type="hidden" id="hdIdApp" runat="server" />
                     <input type="hidden" id="hdIdActivo" runat="server" />
-
-
+                    
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
-                        <table id="tblaplicaciones" class="table table-bordered dt-responsive nowrap">
-
-                            <thead style="background-color:#337ab7; color:white">
+                        <table id="tblunidades" class="table table-bordered dt-responsive nowrap">
+                            <thead style="background-color: #337ab7; color: white">
                                 <tr>
-                                    <th>Acciones</th>
-                                    <th>Servidor</th>
-                                   
+                                    <th>Acciones</th>                                    
                                     <th>Nombre</th>
                                     <th>Descripción Larga</th>
-
-                                    <th>Descripción Corta</th>
-                                    <th>Versión</th>
-                                    <th>Código Fuente</th>
-                                    <th>Paquete Instalación</th>
-                                    <th>Url</th>
-                                    <th>Imagen Url</th>
-
+                                    <th>Descripción Corta</th>                                    
+                                </tr>                                
+                                <tr class='<%# Eval("nombre")%>'>
+                                    <td><%-- Fila para la busqueda en el footer --%></td>
+                                    <td><%# Eval("nombre") %></td>
+                                    <td><%# Eval("descrp_larga") %></td>
+                                    <td><%# Eval("descrp_corta") %></td>
+                                </tr>
+                                <%-- Fila para la busqueda en el footer --%>
+                                <footertemplate>
+                                    <thead>
+                                    <tr id="filterrow">
+                                        <td></td>                                        
+                                        <th>Nombre</th>
+                                        <th>Descripción Larga</th>
+                                        <th>Descripción Corta</th>                                        
+                                    </tr>
+                                </thead>
+                                </footertemplate>                           
+                                <tr>
+                                    <td>
+                                        <asp:Button runat="server" type="button" class="btn btn-primary" value="" Text="Insertar" OnClick="Unnamed_Click"/>
+                                    </td>
                                 </tr>
                             </thead>
-                            <td><%# Eval("nombre") %></td>
-
-                            <tr class='<%# Eval("nombre")%>'>
-
-
-                                <td><%# Eval("nombre") %></td>
-                                <td><%-- Fila para la busqueda en el footer --%></td>
-                                <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
-                                <td><%# Eval("descrp_larga") %></td>
-
-                                <td><%-- Fila para la busqueda en el footer --%></td>
-                                <td><%# Eval("version") %></td>
-
-                            </tr>
-                            <%-- Fila para la busqueda en el footer --%>
-                        
-                               
-                            
-                                   <footertemplate>
-                           <thead>
-            
-                            <tr id="filterrow">
-                              <td></td>
-                            <th >Servidor</th>
-                          
-                            <th>Nombre</th>
-                            <th>Descripción Larga</th>
-                            <th>Descripción Corta</th>
-                            <th>Versión</th>
-                            <th>Código Fuente</th>
-                            <th>Paquete Instalación</th>
-                            <th>Url</th>
-                           <th >Imagen Url</th> 
-                                                
-                            </tr>
-         </thead>
-
-                                      </footertemplate>
-                  
-                            <tr>
-                                <td>
-                        <asp:Button runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar"/>
-                                </td>
-                            </tr>
-                  
                         </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  
     <!--Fin Tabla 1 -->
     <script type="text/javascript">
-
-        $('#tblaplicaciones thead tr#filterrow th').each(function () {
-            var campoBusqueda = $('#tblaplicaciones thead th').eq($(this).index()).text();
+        $('#tblunidades thead tr#filterrow th').each(function () {
+            var campoBusqueda = $('#tblunidades thead th').eq($(this).index()).text();
             $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
         });
 
@@ -156,8 +105,10 @@
           La caracteristica principal de esta table es que se hace server-side
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
-          archivo json creador en la programacion del webService*/
-        var table = $('#tblaplicaciones').DataTable({
+          archivo json creador en la programacion del webService
+        */
+
+        var table = $('#tblunidades').DataTable({
             Processing: true,
             ServerSide: true,
             "sAjaxSource": 'Administracion/aplicaciones.asmx/getTodasAplicaciones',
@@ -176,30 +127,14 @@
                     "render": function (data, type, full, meta) {
                         var buttonID = full.idApp;
                         return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
-                 
-
                     }
-                },
-        { 'data': 'servidor' },
-      
-        { 'data': 'nombre' },
-        { 'data': 'descrp_larga' },
-        { 'data': 'descrp_corta' },
-        { 'data': 'version' },
-        { 'data': 'codigo' },
-        { 'data': 'paquete' },
-        { 'data': 'url' },
-        { 'data': 'imagenUrl' },
-
-
+                },               
+                { 'data': 'nombre' },
+                { 'data': 'descrp_larga' },
+                { 'data': 'descrp_corta' },                
             ],
             "rowCallback": function (row, data, index) {
-
-
-
-
             },
-
 
             /*preferencias del table*/
             orderCellsTop: true,
@@ -209,8 +144,7 @@
 
             "responsive": true,
             "scrollCollapse": true,
-           
-          
+
             "language": {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",
@@ -245,18 +179,13 @@
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             }
-
-
-
         });
-        $("#tblaplicaciones  input").on('keyup change', function () {
+        $("#tblunidades input").on('keyup change', function () {
             table
                 .column($(this).parent().index() + ':visible')
                 .search(this.value)
                 .draw();
         });
-       
-     
 
         function stopPropagation(evt) {
             if (evt.stopPropagation !== undefined) {
@@ -265,18 +194,14 @@
                 evt.cancelBubble = true;
             }
         }
-
         /*
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
         function Modificar(id) {
 
-
-
         }
 
         function Eliminar(id) {
-
 
         }
 
@@ -286,8 +211,7 @@
         function Habilitar_Deshabilitar(idSeleccionado) {
 
         };
-    </script>
-       
+    </script>    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">
 </asp:Content>
