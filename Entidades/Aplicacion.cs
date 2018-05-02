@@ -24,6 +24,8 @@ namespace Entidades
         public String estado { get; set; }
 
         public String servidor { get; set; }
+        public String unidad { get; set; }
+
         public String imagenUrl { get; set; }
       
     }

@@ -28,6 +28,8 @@ namespace PAGAW.Administracion
 
     public class WebService1 : System.Web.Services.WebService
     {
+        UnidadAdministrativaServicios UAservices = new UnidadAdministrativaServicios();
+
         AplicacionServicios appServices = new AplicacionServicios();
 
 
@@ -42,6 +44,24 @@ namespace PAGAW.Administracion
                 iTotalRecords = listaAplicaciones.Count,
                 iTotalDisplayRecords = listaAplicaciones.Count,
                 aaData = listaAplicaciones
+            };
+            //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
+            //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            js.MaxJsonLength = Int32.MaxValue;
+            Context.Response.Write(js.Serialize(resultado));
+        }
+        [WebMethod]
+        public void getTodasUnidadesAdministrativas()
+        {
+            //se trae la lista como en cualquier metodo
+            List<UnidadAdministrativa> listaUnidades = UAservices.getUAs();
+            // en la variable se mete los datos necesario para que se genere el archivo json.
+            var resultado = new
+            {
+                iTotalRecords = listaUnidades.Count,
+                iTotalDisplayRecords = listaUnidades.Count,
+                aaData = listaUnidades
             };
             //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
             //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.

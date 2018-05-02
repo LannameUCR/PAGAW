@@ -20,7 +20,7 @@ namespace AccesoDatos
 
             String sql = "";
 
-            sql = "sp_obtener_aplicaciones";
+            sql = "sp_obtener_aplicaciones_con_unidad_administrativa";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -47,6 +47,7 @@ namespace AccesoDatos
                 app.imagenUrl = reader["imagen"].ToString();
                 app.servidor = reader["tipo_servidor"].ToString();
                 app.estado = reader["habilitado_aplicacion"].ToString();
+                app.unidad= reader["nombre_ua"].ToString(); 
 
 
 
