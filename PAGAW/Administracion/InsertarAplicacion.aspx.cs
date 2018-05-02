@@ -35,7 +35,7 @@ namespace PAGAW.Administracion
             string imagePath = SaveFile(fuImagen, anno, pathImage);
             string zipPath = SaveFile(fuImagen, anno, pathZIP);
             string paquetePath = SaveFile(fuImagen, anno, pathPaquete);
-            
+
 
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
 
