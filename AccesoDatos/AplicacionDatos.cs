@@ -20,7 +20,7 @@ namespace AccesoDatos
 
             String sql = "";
 
-            sql = "get_aplicaciones";
+            sql = "sp_obtener_aplicaciones";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -35,7 +35,7 @@ namespace AccesoDatos
                 Aplicacion app = new Aplicacion();
                 app.idApp = Convert.ToInt32(reader["id_aplicacion"].ToString());
 
-                app.nombre = reader["nombre_aplicacion"].ToString();
+                app.nombre = reader["nombre_largo_aplicacion"].ToString();
                 app.version = reader["version_aplicacion"].ToString();
                 app.descrp_corta = reader["descripcion_corta_app"].ToString();
                 app.descrp_larga = reader["descripcion_larga_app"].ToString();
@@ -57,6 +57,18 @@ namespace AccesoDatos
             sqlConnection.Close();
             return listaApps;
 
+        }
+
+        public void EliminarApplicacion(Aplicacion appElimimar)
+        {
+            SqlConnection sqlConnection = conexion.conexionBI();
+            SqlCommand sqlCommand = new SqlCommand("Delete from Tb_Aplicaciones " +
+                                                   "where id_aplicacion=@idapp", sqlConnection);
+
+            sqlCommand.Parameters.AddWithValue("@idapp", appElimimar.idApp);
+            sqlConnection.Open();
+            sqlCommand.ExecuteReader();
+            sqlConnection.Close();
         }
     }
 }

@@ -58,6 +58,15 @@ namespace PAGAW {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuAdministrador;
         
         /// <summary>
+        /// menu_normal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_normal;
+        
+        /// <summary>
         /// username control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace PAGAW {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor username;
+        
+        /// <summary>
+        /// sessionLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton sessionLink;
         
         /// <summary>
         /// BtnSalir control.

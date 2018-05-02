@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administracion\aplicaciones.asmx" />
+    <Content Include="Administracion\EliminarAplicacion.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
     <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Content\DataTables\Images\details_close.png" />
@@ -104,6 +105,7 @@
     <Content Include="Content\DataTables\Images\sort_both.png" />
     <Content Include="Content\DataTables\Images\sort_desc.png" />
     <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
+    <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -203,6 +205,20 @@
       <DependentUpon>aplicaciones.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Administracion\EliminarAplicacion.aspx.cs">
+      <DependentUpon>EliminarAplicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\EliminarAplicacion.aspx.designer.cs">
+      <DependentUpon>EliminarAplicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Master Page.Master.cs">
       <DependentUpon>Master Page.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +241,7 @@
     <Compile Include="AdministradorAPlicaciones.aspx.designer.cs">
       <DependentUpon>AdministradorAPlicaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">

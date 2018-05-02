@@ -41,6 +41,20 @@
     padding-left:2%;
     padding-right:2%;
 }
+.sessionLink {
+
+     color: blue;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.session:hover{
+  cursor: pointer;
+   color: blue !important;
+    text-decoration: underline;
+  font-family: helvetica;
+
+    
+}
 
 .piePagina {
     background-color: #666666;
@@ -48,7 +62,7 @@
     bottom: 0;
     left: 0;
     padding: 2px;
-    position:absolute;
+
     width:100%;
 }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAPlicaciones.aspx.cs" Inherits="PAGAW.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAPlicaciones.aspx.cs" Inherits="PAGAW.Administracion.WebForm2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -22,13 +22,14 @@
  
       <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
-         <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
+
+    
     <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
-    <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
-    <link href="Scripts/Table/datatables.min.css" rel="stylesheet" />
+    <link href="Scripts/Table/datatables.min.css" rel="stylesheet" />  
+
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
 
-
+    
       
       <%--
 
@@ -41,11 +42,6 @@
     <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
     <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
          --%>
-  
-
-
-  
-
     <div class="panel panel-default apps">
         <div class="panel-heading">
             <h3 class="panel-title">Aplicaciones</h3>
@@ -57,7 +53,7 @@
                     <%-- Aqui agregamos los valores del objeto para que sea reconocibles --%>
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <center>
-            <asp:Label ID="lblNombreInventarioConsolidado" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
+            <asp:Label ID="lbl_Apps" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
         </center>
                     </div>
 
@@ -106,8 +102,8 @@
                         
                                
                             
-                                   <footertemplate>
-                           <thead>
+                                   <tfoot>
+                          <thead>
             
                             <tr id="filterrow">
                               <td></td>
@@ -125,7 +121,7 @@
                             </tr>
          </thead>
 
-                                      </footertemplate>
+                                      </tfoot>
                   
                             <tr>
                                 <td>
@@ -134,6 +130,8 @@
                             </tr>
                   
                         </table>
+                      <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
+
                     </div>
                 </div>
             </div>
@@ -143,8 +141,8 @@
     <!--Fin Tabla 1 -->
     <script type="text/javascript">
 
-        $('#tblaplicaciones thead tr#filterrow th').each(function () {
-            var campoBusqueda = $('#tblaplicaciones thead th').eq($(this).index()).text();
+        $('#tblaplicaciones  tr#filterrow th').each(function () {
+            var campoBusqueda = $('#tblaplicaciones  th').eq($(this).index()).text();
             $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
         });
 
@@ -171,7 +169,7 @@
             /*Setear columnas con datos*/
             "columns": [
                 {
-                    /*Asignamos que los botones tengan como valor el id del activo que trae el archivo json*/
+                    /*Asignamos que los botones tengan como valor el id de la app que trae el archivo json*/
                     sortable: false,
                     "render": function (data, type, full, meta) {
                         var buttonID = full.idApp;
@@ -277,7 +275,8 @@
 
         function Eliminar(id) {
 
-
+             document.getElementById("<%=hdIdApp.ClientID%>").value = id;
+            document.getElementById("<%= btnEliminar.ClientID%>").click();
         }
 
         function seleccionar(idSeleccionado) {

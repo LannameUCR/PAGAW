@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="PAGAW.WebForm1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -8,6 +9,21 @@
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.bootstrap.min.css" rel="stylesheet" />
     <link href="http://protostrap.com/Assets/gv/css/gv.bootstrap-form.css" rel="stylesheet" type="text/css" />
+    <script src='<%=Page.ResolveUrl("~/Scripts/jquery-1.9.1.js") %>'></script>
+
+          <script type="text/javascript">
+
+                $('#exampleModal').on('show.bs.modal', function (event) {
+                    var button = $(event.relatedTarget) // Button that triggered the modal
+                    var recipient = button.data('whatever') // Extract info from data-* attributes
+                    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                    var modal = $(this)
+                    modal.find('.modal-title').text('' + recipient)
+                    modal.find('.modal-body input').val(recipient)
+                })
+
+            </script>
     <div class="container_filtros">
         <div class="row">
             <div class="row">
@@ -76,18 +92,20 @@
 
                                     <div class="overlay">
 
-                                        <a class="info" href="#"><%# Eval("descrp_larga") %></a>                                    </div>
+                                        <a class="info" href='<%# Eval("url")%>'>Ejecutar</a>
+                                    </div>
                                 </div>
                             </div>
                             <div class="panel-footer " id="des">
                                 <div>
                                     <p style="text-align: center; font-weight: bold;">Descripción</p>
                                 </div>
-                                The example below centers a paragraph inside a block that has a certain given height. A separate example shows a paragraph that is centered vertically in the browser window, because it is inside a block that is absolutely positioned and as tall as the window.d
-                            <asp:Label ID="lsb_descripcion" runat="server" Text="Label" Style="text-align: justify;"><%# Eval("descrp_larga") %></asp:Label>
+                               
+                            <asp:Label ID="lsb_descripcion" runat="server" Text="Label" Style="text-align: justify;"><%# Eval("descrp_corta") %></asp:Label>
                                 <p>
                                 </p>
-                                <a>Ver más</a>
+                                <a data-toggle="modal" data-target="#my_modal" >Ver más</a>
+                              
 
                             </div>
                         </div>
@@ -100,6 +118,8 @@
             </div>
                 </FooterTemplate>
             </asp:Repeater>
+         
+        
         </div>
     </div>
 </asp:Content>

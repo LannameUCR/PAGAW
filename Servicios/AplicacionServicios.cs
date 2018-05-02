@@ -19,5 +19,10 @@ namespace Servicios
             return appoDatos.getApps();
 
         }
+
+        public void eliminarAplicacion(Aplicacion appElimimar)
+        {
+            appoDatos.EliminarApplicacion(appElimimar);
+        }
     }
 }
