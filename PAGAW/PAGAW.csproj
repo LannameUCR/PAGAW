@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="Administracion\aplicaciones.asmx" />
     <Content Include="Administracion\EliminarAplicacion.aspx" />
+    <Content Include="Administracion\EliminarUnidadAdministrativa.aspx" />
     <Content Include="AdministradorUnidadAdministrativa.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
     <Content Include="Content\DataTables\datatables.min.css" />
@@ -212,6 +213,13 @@
     </Compile>
     <Compile Include="Administracion\EliminarAplicacion.aspx.designer.cs">
       <DependentUpon>EliminarAplicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\EliminarUnidadAdministrativa.aspx.cs">
+      <DependentUpon>EliminarUnidadAdministrativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\EliminarUnidadAdministrativa.aspx.designer.cs">
+      <DependentUpon>EliminarUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdministradorUnidadAdministrativa.aspx.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>

@@ -60,9 +60,7 @@
 
                     <%# Eval("nombre_ua") %>
                     <input type="hidden" id="hdIdUA" runat="server" />
-             
-
-
+  
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
@@ -71,7 +69,6 @@
                             <thead style="background-color: #337ab7; color: white">
                                 <tr>
                                     <th>Acciónes</th>
-
                                     <th>Nombre</th>
                                     <th>Descripcion Larga</th>
                                     <th>Descripcion Corta</th>
@@ -79,10 +76,7 @@
                                 </tr>
                             </thead>
                             <td><%# Eval("nombre_ua") %></td>
-
                             <tr class='<%# Eval("nombre_ua")%>'>
-
-
                                 <td><%# Eval("nombre_ua") %></td>
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
@@ -90,7 +84,6 @@
 
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%# Eval("descripcion_corta") %></td>
-
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
                             <tfoot>
@@ -110,26 +103,21 @@
                             </tr>
                         </table>
                         <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <!--Fin Tabla 1 -->
     <script type="text/javascript">
-
         $('#tblUA  tr#filterrow th').each(function () {
             var campoBusqueda = $('#tblUA  th').eq($(this).index()).text();
             $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
         });
-
         var idOculto = $("#<%= hdIdUA.ClientID %>").val();
         /*Aqui creamos la tabla con DataTables
           todas las propiedades del DataTable deben ser seteadas desde aqui y
           no desde el CodeBehind. 
-          
           La caracteristica principal de esta table es que se hace server-side
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
@@ -142,7 +130,6 @@
             "fnServerParams": function (aoData) {
                 aoData.push({ "name": "hdIdUA", "value": idOculto });
             },
-
             sServerMethod: 'post',
             "sSearch": true,
             /*Setear columnas con datos*/
@@ -151,14 +138,10 @@
                     /*Asignamos que los botones tengan como valor el id de la app que trae el archivo json*/
                     sortable: false,
                     "render": function (data, type, full, meta) {
-                        var buttonID = full.idApp;
+                        var buttonID = full.id_ua;
                         return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
-
-
                     }
                 },
-    
-
         { 'data': 'nombre_ua' },
         { 'data': 'descripcion_larga' },
         { 'data': 'descripcion_corta' },
@@ -174,7 +157,6 @@
 
             "responsive": true,
             "scrollCollapse": true,
-
 
             "language": {
                 "sProcessing": "Procesando...",
@@ -220,9 +202,6 @@
                 .search(this.value)
                 .draw();
         });
-
-
-
         function stopPropagation(evt) {
             if (evt.stopPropagation !== undefined) {
                 evt.stopPropagation();
@@ -230,16 +209,11 @@
                 evt.cancelBubble = true;
             }
         }
-
         /*
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
         function Modificar(id) {
-
-
-
         }
-
         function Eliminar(id) {
 
             document.getElementById("<%=hdIdUA.ClientID%>").value = id;

@@ -16,5 +16,11 @@ namespace Servicios
         {
             return UAdatos.getTodasUAs();
         }
+
+        public void eliminarUnidadAdministrativa(UnidadAdministrativa uaEliminar)
+        {
+            UAdatos.eliminarUnidadAdministrativa(uaEliminar);
+
+        }
     }
 }

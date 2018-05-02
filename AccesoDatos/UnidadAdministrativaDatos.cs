@@ -17,12 +17,9 @@ namespace AccesoDatos
         public List<UnidadAdministrativa> getTodasUAs()
         {
 
-
             List<UnidadAdministrativa> listaUAs = new List<UnidadAdministrativa>();
             SqlConnection sqlConnection = conexion.conexionBI();
-
             String sql = "";
-
             sql = "getTodasUnidadesAdministrativas";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
@@ -34,20 +31,27 @@ namespace AccesoDatos
 
             while (reader.Read())
             {
-
                 UnidadAdministrativa ua = new UnidadAdministrativa();
-
                 ua.id_ua = Convert.ToInt32(reader["id_ua"].ToString());
-
                 ua.nombre_ua = reader["nombre_ua"].ToString();
                 ua.descripcion_corta = reader["descripcion_corta"].ToString();
-
                 ua.descripcion_larga = reader["descripcion_larga"].ToString();
                 listaUAs.Add(ua);
 
             }
             sqlConnection.Close();
             return listaUAs;
+        }
+
+        public void eliminarUnidadAdministrativa(UnidadAdministrativa uaEliminar)
+        {
+            SqlConnection sqlConnection = conexion.conexionBI();
+            SqlCommand sqlCommand = new SqlCommand("Delete from Tb_Unidad_Administrativa " +
+                                                   "where id_ua=@idUa", sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@idUa", uaEliminar.id_ua);
+            sqlConnection.Open();
+            sqlCommand.ExecuteReader();
+            sqlConnection.Close();
         }
     }
 }
