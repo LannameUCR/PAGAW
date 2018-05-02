@@ -17,5 +17,10 @@ namespace PAGAW
         {
             
         }
+
+        protected void btnInsertar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InsertarUnidadAdministrativa.aspx");
+        }
     }
 }
