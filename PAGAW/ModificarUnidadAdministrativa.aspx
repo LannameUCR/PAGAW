@@ -12,13 +12,13 @@
                     <asp:Label runat="server"  ID="dangerAlert" class="alert alert-danger" Visible="false" Width="100%">
                         <strong><asp:Label runat="server" ID="alertDangerMessage"></asp:Label></strong>
                     </asp:Label>             
-                    <asp:Label runat="server" Text="Nombre" />
+                    <asp:Label runat="server" Text="Nombre" style="font-weight: bold;"/>
                     <asp:TextBox ID="uaNombre" runat="server" CssClass="form-control" Width="30%" style="margin: 0 auto;" OnTextChanged="uaNombre_TextChanged"/>
                     <br/><br/>
-                    <asp:Label runat="server" Text="Descripción corta" />
+                    <asp:Label runat="server" Text="Descripción corta" style="font-weight: bold;"/>
                     <asp:TextBox ID="uaDescCorta" runat="server" CssClass="form-control" Width="30%" style="margin: 0 auto;"/>
                     <br/><br/>
-                    <asp:Label runat="server" Text="Descripción larga" />
+                    <asp:Label runat="server" Text="Descripción larga" style="font-weight: bold;"   />
                     <asp:TextBox ID="uaDescLarga" runat="server" TextMode="MultiLine" Rows="5" style="margin: 0 auto;" CssClass="form-control" Width="30%"/>
                     <br/><br/>
                     <asp:Button runat="server" Text="Modificar unidad" CssClass="btn btn-primary" OnClick="modificar_unidad_Click"/>
