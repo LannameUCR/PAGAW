@@ -22,7 +22,7 @@ namespace PAGAW
 
             }
             else {
-
+              
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)

@@ -55,14 +55,7 @@ namespace PAGAW.Administracion
 
             String url = Page.ResolveUrl("~/Administracion/EliminarAplicacion.aspx");
             Response.Redirect(url);
-
-
-            //appServicios.eliminarAplicacion(appElimimar);
-
-
-            //Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri + "#tblaplicaciones");
         }
-        #endregion
 
         protected void btnInsertar_Click1(object sender, EventArgs e)
         {
@@ -75,5 +68,7 @@ namespace PAGAW.Administracion
 
             Response.Redirect("Administracion/ActualizarAplicacion.aspx?id=" + idApp + "");
         }
+        #endregion
+
     }
 }

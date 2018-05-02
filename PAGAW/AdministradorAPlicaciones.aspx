@@ -37,8 +37,8 @@
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery.dataTables.min.js") %>'></script>
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
     
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
-        <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
+    <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
+    <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
     <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
     <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
     --%>
@@ -56,12 +56,9 @@
                             <asp:Label ID="lbl_Apps" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
                         </center>
                     </div>
-
                     <%# Eval("nombre_largo_aplicacion") %>
                     <input type="hidden" id="hdIdApp" runat="server" />
                     <input type="hidden" id="hdIdActivo" runat="server" />
-
-
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
@@ -90,6 +87,8 @@
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
                                 <td><%# Eval("descripcion_larga_app") %></td>
+                                <td><%# Eval("descripcion_corta_app") %></td>
+
 
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%# Eval("version_aplicacion") %></td>
@@ -98,33 +97,26 @@
                             <%-- Fila para la busqueda en el footer --%>
                             <tfoot>
                                 <thead>
-
                                     <tr id="filterrow">
-                                        <td></td>
-                                        <th>Acciónes</th>
+                                        <td></td>                              
                                         <th>Nombre largo</th>
                                         <th>Nombre corto</th>
                                         <th>Descripción larga</th>
                                         <th>Descripción corta</th>
-                                        <th>Versión</th>
-                                       
+                                        <th>Versión</th>                 
                                         <th>Código Fuente</th>
                                         <th>Paquete Instalación</th>
                                         <th>Url</th>
                                         <th >Servidor</th>
                                         <th >Imagen Url</th> 
-
                                     </tr>
                                 </thead>
-
                             </tfoot>
-
                             <tr>
                                 <td>
                                     <asp:Button ID="btnInsertar" runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar" OnClick="btnInsertar_Click1"/>
                                 </td>
                             </tr>
-
                         </table>
                         <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
                         <asp:LinkButton ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" CssClass="hidden"></asp:LinkButton>
@@ -141,7 +133,6 @@
             var campoBusqueda = $('#tblaplicaciones  th').eq($(this).index()).text();
             $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
         });
-
         var idOculto = $("#<%= hdIdApp.ClientID %>").val();
         /*Aqui creamos la tabla con DataTables
           todas las propiedades del DataTable deben ser seteadas desde aqui y
