@@ -7,12 +7,13 @@
             <h3 class="panel-title">Modificar Aplicación</h3>
         </div>
         <div class="panel-body">
-            <div class="divRedondo" >    
+            <div class="divRedondo" >  
+                <asp:TextBox ID="txtIdApp" class="form-control" placeholder="Nombre largo" runat="server" CssClass="hidden"></asp:TextBox>  
                 <div class="form-group row" >
                     <label runat="server" class="col-sm-2 col-form-label">Nombre largo</label>
                     <div class="col-sm-10" style="width:30%; " >
                         <asp:TextBox ID="txtNombreLargo" class="form-control" placeholder="Nombre largo" runat="server"></asp:TextBox>
-                    </div>
+                    </div>  
                 </div>
                 <div class="form-group row">
                     <label runat="server" class="col-sm-2 col-form-label">Nombre corto</label>

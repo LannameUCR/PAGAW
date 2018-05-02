@@ -21,7 +21,6 @@ namespace PAGAW
                 Page.Master.FindControl("BtnSalir").Visible = true;
             }
             else {
-                
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
