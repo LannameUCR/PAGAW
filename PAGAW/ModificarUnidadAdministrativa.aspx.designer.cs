@@ -10,33 +10,51 @@
 namespace PAGAW {
     
     
-    public partial class AdministradorUnidadAdministrativa {
+    public partial class ModificarUnidadAdministrativa {
         
         /// <summary>
-        /// Control lbl_Apps.
+        /// Control dangerAlert.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Apps;
+        protected global::System.Web.UI.WebControls.Label dangerAlert;
         
         /// <summary>
-        /// Control hdIdUA.
+        /// Control alertDangerMessage.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdIdUA;
+        protected global::System.Web.UI.WebControls.Label alertDangerMessage;
         
         /// <summary>
-        /// Control btnEliminar.
+        /// Control uaNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnEliminar;
+        protected global::System.Web.UI.WebControls.TextBox uaNombre;
+        
+        /// <summary>
+        /// Control uaDescCorta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uaDescCorta;
+        
+        /// <summary>
+        /// Control uaDescLarga.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uaDescLarga;
     }
 }

@@ -33,16 +33,16 @@
 
 
     <%--
-
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery-1.12.4.js") %>'></script>
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery.dataTables.min.js") %>'></script>
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
     
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
         <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
-    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
-    <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
+        <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
+        <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
     --%>
+
     <div class="panel panel-default apps">
         <div class="panel-heading">
             <h3 class="panel-title">Unidades Administrativas</h3>
@@ -50,29 +50,24 @@
         <div class="panel-body">
             <div class="divRedondo">
                 <div class="row">
-
                     <%-- Aqui agregamos los valores del objeto para que sea reconocibles --%>
                     <div class="col-md-12 col-xs-12 col-sm-12">
                         <center>
-            <asp:Label ID="lbl_Apps" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
-        </center>
+                            <asp:Label ID="lbl_Apps" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
+                        </center>
                     </div>
-
                     <%# Eval("nombre_ua") %>
                     <input type="hidden" id="hdIdUA" runat="server" />
-  
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
                         <table id="tblUA" class="table table-bordered dt-responsive nowrap">
-
                             <thead style="background-color: #337ab7; color: white">
                                 <tr>
-                                    <th>Acciónes</th>
+                                    <th>Acciones</th>
                                     <th>Nombre</th>
                                     <th>Descripcion Larga</th>
                                     <th>Descripcion Corta</th>
-
                                 </tr>
                             </thead>
                             <td><%# Eval("nombre_ua") %></td>
@@ -81,7 +76,6 @@
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
                                 <td><%# Eval("descripcion_larga") %></td>
-
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%# Eval("descripcion_corta") %></td>
                             </tr>
@@ -98,7 +92,7 @@
                             </tfoot>
                             <tr>
                                 <td>
-                                    <asp:Button runat="server" type="button" class="btn btn-primary" value="" Text="Insertar" />
+                                    <asp:Button runat="server" type="button" class="btn btn-primary" value="" OnClick="btnInsertar_Click" Text="Insertar" />
                                 </td>
                             </tr>
                         </table>
@@ -141,7 +135,8 @@
                         var buttonID = full.id_ua;
                         return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
                     }
-                },
+                },    
+        
         { 'data': 'nombre_ua' },
         { 'data': 'descripcion_larga' },
         { 'data': 'descripcion_corta' },
@@ -192,9 +187,6 @@
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             }
-
-
-
         });
         $("#tblUA  input").on('keyup change', function () {
             table
@@ -212,16 +204,18 @@
         /*
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
-        function Modificar(id) {
+        function Modificar(id) {            
+            window.location = "ModificarUnidadAdministrativa.aspx?idUA=" + id;
         }
         function Eliminar(id) {
-
             document.getElementById("<%=hdIdUA.ClientID%>").value = id;
             document.getElementById("<%= btnEliminar.ClientID%>").click();
         }
+
         function seleccionar(idSeleccionado) {
 
         };
+
         function Habilitar_Deshabilitar(idSeleccionado) {
 
         };

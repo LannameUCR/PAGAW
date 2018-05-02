@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -107,7 +108,9 @@
     <Content Include="Content\DataTables\Images\sort_both.png" />
     <Content Include="Content\DataTables\Images\sort_desc.png" />
     <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
+    <Content Include="InsertarUnidadAdministrativa.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ModificarUnidadAdministrativa.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -228,6 +231,13 @@
     <Compile Include="AdministradorUnidadAdministrativa.aspx.designer.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InsertarUnidadAdministrativa.aspx.cs">
+      <DependentUpon>InsertarUnidadAdministrativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarUnidadAdministrativa.aspx.designer.cs">
+      <DependentUpon>InsertarUnidadAdministrativa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -241,6 +251,13 @@
     </Compile>
     <Compile Include="Master Page.Master.designer.cs">
       <DependentUpon>Master Page.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUnidadAdministrativa.aspx.cs">
+      <DependentUpon>ModificarUnidadAdministrativa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarUnidadAdministrativa.aspx.designer.cs">
+      <DependentUpon>ModificarUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Inicio.aspx.cs">

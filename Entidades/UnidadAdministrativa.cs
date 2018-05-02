@@ -22,5 +22,12 @@ namespace Entidades
         }
 
         public UnidadAdministrativa() { }
+
+        public UnidadAdministrativa(string nombre_ua, string descripcion_larga, string descripcion_corta)
+        {
+            this.nombre_ua = nombre_ua;
+            this.descripcion_larga = descripcion_larga;
+            this.descripcion_corta = descripcion_corta;
+        }
     }
 }

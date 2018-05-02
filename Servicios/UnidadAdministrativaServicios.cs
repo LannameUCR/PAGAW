@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using AccesoDatos;
+using System.Collections;
 
 namespace Servicios
 {
@@ -20,7 +21,21 @@ namespace Servicios
         public void eliminarUnidadAdministrativa(UnidadAdministrativa uaEliminar)
         {
             UAdatos.eliminarUnidadAdministrativa(uaEliminar);
+        }
 
+        public bool agregarUA(UnidadAdministrativa unidadAdministrativa)
+        {
+            return UAdatos.agregarUnidadAdministrativa(unidadAdministrativa);
+        }
+
+        public bool modificarUA(UnidadAdministrativa unidadAdministrativa)
+        {
+            return UAdatos.modificarUA(unidadAdministrativa);
+        }
+
+        public Hashtable getHasUA()
+        {
+            return UnidadAdministrativaDatos.hashUA;
         }
     }
 }
