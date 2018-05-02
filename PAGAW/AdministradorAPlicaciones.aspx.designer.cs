@@ -40,6 +40,15 @@ namespace PAGAW.Administracion {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdIdActivo;
         
         /// <summary>
+        /// btnInsertar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInsertar;
+        
+        /// <summary>
         /// btnEliminar control.
         /// </summary>
         /// <remarks>
@@ -47,5 +56,14 @@ namespace PAGAW.Administracion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnEliminar;
+        
+        /// <summary>
+        /// btnActualizar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnActualizar;
     }
 }

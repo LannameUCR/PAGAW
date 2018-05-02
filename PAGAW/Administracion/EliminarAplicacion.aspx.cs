@@ -20,14 +20,14 @@ namespace PAGAW.Administracion
             if (!IsPostBack)
             {
                 Aplicacion appEliminar = (Aplicacion)Session["appEliminar"];
-                txtnombreApp.Text = appEliminar.nombre;
-                txtServidor.Text = appEliminar.servidor;
-                txtdes_corta.Text = appEliminar.descrp_corta;
-                txtPaquete.Text = appEliminar.paquete;
+                txtnombreApp.Text = appEliminar.nombre_corto_aplicacion;
+                txtServidor.Text = appEliminar.tipo_servidor;
+                txtdes_corta.Text = appEliminar.descripcion_corta_app;
+                txtPaquete.Text = appEliminar.paquete_instalacion;
                 txtUrl.Text = appEliminar.url;
-                txtCodigo.Text = appEliminar.codigo;
-                txtVersion.Text = appEliminar.version;    
-                txtdesc.Text = appEliminar.descrp_larga;
+                txtCodigo.Text = appEliminar.codigo_aplicacion;
+                txtVersion.Text = appEliminar.version_aplicacion;    
+                txtdesc.Text = appEliminar.descripcion_larga_app;
 
             }
         }

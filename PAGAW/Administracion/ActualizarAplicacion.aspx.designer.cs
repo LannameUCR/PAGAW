@@ -7,144 +7,117 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PAGAW {
+namespace PAGAW.Administracion {
     
     
-    public partial class Master_Page {
+    public partial class ActualizarAplicacion {
         
         /// <summary>
-        /// Head1 control.
+        /// txtNombreLargo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreLargo;
         
         /// <summary>
-        /// HeadContent control.
+        /// txtNombreCorto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCorto;
         
         /// <summary>
-        /// form1 control.
+        /// txtDescripcion_larga control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion_larga;
         
         /// <summary>
-        /// menu control.
+        /// txtDescripcion_corta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu;
+        protected global::System.Web.UI.WebControls.TextBox txtDescripcion_corta;
         
         /// <summary>
-        /// MenuAdministrador control.
+        /// txtVersion_aplicacion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl MenuAdministrador;
+        protected global::System.Web.UI.WebControls.TextBox txtVersion_aplicacion;
         
         /// <summary>
-        /// menu_normal control.
+        /// fupCodigoZip control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl menu_normal;
+        protected global::System.Web.UI.WebControls.FileUpload fupCodigoZip;
         
         /// <summary>
-        /// username control.
+        /// fuCodigoFuente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor username;
+        protected global::System.Web.UI.WebControls.FileUpload fuCodigoFuente;
         
         /// <summary>
-        /// sessionLink control.
+        /// txtUrlServidor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton sessionLink;
+        protected global::System.Web.UI.WebControls.TextBox txtUrlServidor;
         
         /// <summary>
-        /// BtnSalir control.
+        /// ddlTipoServidor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSalir;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoServidor;
         
         /// <summary>
-        /// MainContent control.
+        /// fuImagen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.FileUpload fuImagen;
         
         /// <summary>
-        /// ContentFormInsertarAplicacion control.
+        /// btnActualizar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentFormInsertarAplicacion;
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
         
         /// <summary>
-        /// ContentFormActualizarAplicacion control.
+        /// btnCancelar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentFormActualizarAplicacion;
-        
-        /// <summary>
-        /// mensaje control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mensaje;
-        
-        /// <summary>
-        /// alert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label alert;
-        
-        /// <summary>
-        /// ScriptContent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ScriptContent;
+        protected global::System.Web.UI.WebControls.Button btnCancelar;
     }
 }

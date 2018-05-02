@@ -57,7 +57,7 @@
                         </center>
                     </div>
 
-                    <%# Eval("nombre") %>
+                    <%# Eval("nombre_largo_aplicacion") %>
                     <input type="hidden" id="hdIdApp" runat="server" />
                     <input type="hidden" id="hdIdActivo" runat="server" />
 
@@ -69,28 +69,30 @@
 
                             <thead style="background-color: #337ab7; color: white">
                                 <tr>
-                                    <th>Acciones</th>
-                                    <th>Servidor</th>
-                                    <th>Nombre</th>
-                                    <th>Descripción Larga</th>
-                                    <th>Descripción Corta</th>
+                                    <th>Acciónes</th>
+                                    <th>Nombre largo</th>
+                                    <th>Nombre corto</th>
+                                    <th>Descripción larga</th>
+                                    <th>Descripción corta</th>
                                     <th>Versión</th>
+                                    
                                     <th>Código Fuente</th>
                                     <th>Paquete Instalación</th>
                                     <th>Url</th>
-                                    <th>Imagen Url</th>
+                                    <th >Servidor</th>
+                                    <th >Imagen Url</th> 
 
                                 </tr>
                             </thead>
-                            <td><%# Eval("nombre") %></td>
-                            <tr class='<%# Eval("nombre")%>'>
-                                <td><%# Eval("nombre") %></td>
+                            <td><%# Eval("nombre_largo_aplicacion") %></td>
+                            <tr class='<%# Eval("nombre_largo_aplicacion")%>'>
+                                <td><%# Eval("nombre_largo_aplicacion") %></td>
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
-                                <td><%# Eval("descrp_larga") %></td>
+                                <td><%# Eval("descripcion_larga_app") %></td>
 
                                 <td><%-- Fila para la busqueda en el footer --%></td>
-                                <td><%# Eval("version") %></td>
+                                <td><%# Eval("version_aplicacion") %></td>
 
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
@@ -99,16 +101,18 @@
 
                                     <tr id="filterrow">
                                         <td></td>
-                                        <th>Servidor</th>
-
-                                        <th>Nombre</th>
-                                        <th>Descripción Larga</th>
-                                        <th>Descripción Corta</th>
+                                        <th>Acciónes</th>
+                                        <th>Nombre largo</th>
+                                        <th>Nombre corto</th>
+                                        <th>Descripción larga</th>
+                                        <th>Descripción corta</th>
                                         <th>Versión</th>
+                                       
                                         <th>Código Fuente</th>
                                         <th>Paquete Instalación</th>
                                         <th>Url</th>
-                                        <th>Imagen Url</th>
+                                        <th >Servidor</th>
+                                        <th >Imagen Url</th> 
 
                                     </tr>
                                 </thead>
@@ -117,13 +121,13 @@
 
                             <tr>
                                 <td>
-                                    <asp:Button runat="server" type="button" class="btn btn-primary" value="" Text="Insertar" />
+                                    <asp:Button ID="btnInsertar" runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar" OnClick="btnInsertar_Click1"/>
                                 </td>
                             </tr>
 
                         </table>
                         <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
-
+                        <asp:LinkButton ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" CssClass="hidden"></asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -164,22 +168,23 @@
                     /*Asignamos que los botones tengan como valor el id de la app que trae el archivo json*/
                     sortable: false,
                     "render": function (data, type, full, meta) {
-                        var buttonID = full.idApp;
+                        var buttonID = full.id_aplicacion;
                         return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
 
 
                     }
                 },
-        { 'data': 'servidor' },
-
-        { 'data': 'nombre' },
-        { 'data': 'descrp_larga' },
-        { 'data': 'descrp_corta' },
-        { 'data': 'version' },
-        { 'data': 'codigo' },
-        { 'data': 'paquete' },
+        { 'data': 'nombre_largo_aplicacion' },
+        { 'data': 'nombre_corto_aplicacion' },
+        { 'data': 'descripcion_larga_app' },
+        { 'data': 'descripcion_corta_app' },
+        { 'data': 'version_aplicacion' },
+       
+        { 'data': 'codigo_aplicacion' },
+        { 'data': 'paquete_instalacion' },
         { 'data': 'url' },
-        { 'data': 'imagenUrl' },
+        { 'data': 'tipo_servidor' },
+        { 'data': 'imagen' },
 
 
             ],
@@ -260,8 +265,9 @@
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
         function Modificar(id) {
+            document.getElementById("<%=hdIdApp.ClientID%>").value = id;
 
-
+            document.getElementById("<%= btnActualizar.ClientID%>").click();
 
         }
 

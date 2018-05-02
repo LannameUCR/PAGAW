@@ -44,7 +44,7 @@ namespace PAGAW.Administracion
             Aplicacion appElimimar = new Aplicacion();
             foreach (Aplicacion appTemporal in listaApps)
             {
-                if (appTemporal.idApp == idApp)
+                if (appTemporal.id_aplicacion == idApp)
                 {
                     //activo_copia a editar
                     appElimimar = appTemporal;
@@ -63,5 +63,17 @@ namespace PAGAW.Administracion
             //Response.Redirect(HttpContext.Current.Request.Url.AbsoluteUri + "#tblaplicaciones");
         }
         #endregion
+
+        protected void btnInsertar_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("Administracion/InsertarAplicacion.aspx");
+        }
+
+        protected void btnActualizar_Click(object sender, EventArgs e)
+        {
+            int idApp = Convert.ToInt32(hdIdApp.Value);
+
+            Response.Redirect("Administracion/ActualizarAplicacion.aspx?id=" + idApp + "");
+        }
     }
 }
