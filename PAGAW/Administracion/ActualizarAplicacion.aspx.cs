@@ -12,9 +12,8 @@ namespace PAGAW.Administracion
 {
     public partial class ActualizarAplicacion : System.Web.UI.Page
     {
-        public static string pathImage = "C:\\Users\\Danny\\Desktop\\PAGAW-Iteracion1_LucreciaZu-iga_Terminado\\PAGAW\\Images\\img";
-        public static string pathZIP = "C:\\Users\\Danny\\Desktop\\PAGAW-Iteracion1_LucreciaZu-iga_Terminado\\PAGAW\\ZIP\\zip";
-        public static string pathPaquete = "C:\\Users\\Danny\\Desktop\\PAGAW-Iteracion1_LucreciaZu-iga_Terminado\\PAGAW\\PAQUETE\\codigo";
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+
         //public static string path = "\\\\issac\\AppFiles\\CTL\\AT\\";
 
         #region variables globales
@@ -40,7 +39,11 @@ namespace PAGAW.Administracion
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             int anno = DateTime.Today.Year;
-
+            path = path.Remove(0, 6);
+            path = path.Remove(path.Length - 9);
+            string pathImage = path + "Images\\img";
+            string pathZIP = path + "ZIP\\zip";
+            string pathPaquete = path + "PAQUETE\\codigo";
             string imagePath = SaveFile(fuImagen, anno, pathImage);
             string zipPath = SaveFile(fuImagen, anno, pathZIP);
             string paquetePath = SaveFile(fuImagen, anno, pathPaquete);
@@ -61,9 +64,9 @@ namespace PAGAW.Administracion
         {
             // Obtener el nombre del archivo que desea cargar.
             string archivo = fuImagen.FileName;
-
+            String url = path + archivo;
             /*Se obtiene la extensión del archivo*/
-            FileInfo fi = new FileInfo(archivo);
+            FileInfo fi = new FileInfo(url);
             string ext = fi.Extension;
 
             /*Se obtiene el nombre y la extrensión del archivo*/
