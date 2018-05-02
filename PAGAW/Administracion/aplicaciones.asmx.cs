@@ -69,5 +69,25 @@ namespace PAGAW.Administracion
             js.MaxJsonLength = Int32.MaxValue;
             Context.Response.Write(js.Serialize(resultado));
         }
+
+        [WebMethod]
+        public void getAplicacionPorNombre(string nombreAplicacion)
+        {
+            //Se trae la lista como en cualquier método
+            List<Aplicacion> ListaAplicaciones = appServices.getAplicacionPorNombre(nombreAplicacion);
+
+            // En la variable se mete los datos necesarios para que se genere el archivo json.
+            var resultado = new
+            {
+                iTotalRecords = ListaAplicaciones.Count,
+                iTotalDisplayRecords = ListaAplicaciones.Count,
+                aaData = ListaAplicaciones
+            };
+            //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
+            //El tamaño se setea al máximo ya que esto es para consultas que devuelvan miles de tuplas.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            js.MaxJsonLength = Int32.MaxValue;
+            Context.Response.Write(js.Serialize(resultado));
+        }
     }
 }

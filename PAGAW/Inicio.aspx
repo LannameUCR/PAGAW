@@ -22,7 +22,7 @@
                                 <asp:Label runat="server" class="control-label control-label-left col-sm-3" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
                                 <div class="controls col-sm-9">
 
-                                    <asp:DropDownList ID="selec_unidad_administrativa" class="form-control" runat="server" OnSelectedIndexChanged="selec_unidad_administrativa_SelectedIndexChanged">
+                                    <asp:DropDownList ID="selec_unidad_administrativa" class="form-control" runat="server" OnSelectedIndexChanged="selec_unidad_administrativa_SelectedIndexChanged" AutoPostBack="true" >
                                         
                                     </asp:DropDownList>
                                 </div>
@@ -124,8 +124,44 @@
             </div>
           </div>
         </div>
+
             <script>
-    $(document).ready(function(){
+        $(document).ready(function () {
+
+            /*Se hace la busqueda de la aplicación de acuerdo a lo que ingreso el usuario*/
+            $('#app_search').keyup(function () {
+                var aplicacion = $(this).val();
+
+                if (aplicacion != "") {
+
+                    $.ajax({
+                        url: 'Administracion/aplicaciones.asmx/getAplicacionPorNombre',
+                        type: 'POST',
+                        dataType: 'text',
+                        data: { nombreAplicacion: aplicacion },
+                        beforeSend: function () {
+
+                        }
+                    })
+                    .done(function (resp) {
+                        /*Se transforma los datos que se obtienen en un objeto json*/
+                        var aplicacion = JSON.parse(resp);
+
+                        alert(aplicacion)
+                        var Repeater1 = $('input[type="Repeater"]');
+
+                        Repeater1.DataSource = aplicacion;
+                        Repeater1.DataBind();
+
+                    }).fail(function (error, textStatus, errorThrown) {
+                        console.log(error.status); //Check console for output
+                        //$("#loadIMg").hide();//#datos es un div
+                    });
+                }
+            });
+
+
+
         $('#showDescripcion').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget);
           var subjdes = button.data('whatever');

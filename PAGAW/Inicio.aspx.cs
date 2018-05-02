@@ -43,7 +43,6 @@ namespace PAGAW
             UnidadAdministrativa unidad = new UnidadAdministrativa();
             unidad.id_ua = Int32.Parse(selec_unidad_administrativa.SelectedValue);
 
-
             listaApps = appService.getAplicacionPorUnidadAdministrativa(unidad.id_ua);
             this.repiterApps.DataSource = listaApps;
             this.repiterApps.DataBind();

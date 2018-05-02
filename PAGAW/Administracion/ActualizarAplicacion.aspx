@@ -3,7 +3,7 @@
     <div class="divRedondo col-sm-6">
     
 
-            <asp:TextBox ID="txtIdApp" class="form-control" placeholder="Nombre largo" runat="server" CssClass="hidden"></asp:TextBox>
+        <asp:TextBox ID="txtIdApp" class="form-control" placeholder="Nombre largo" runat="server" CssClass="hidden"></asp:TextBox>
             
         <div class="form-group row">
                 <asp:Label runat="server" class="col-sm-2 col-form-label" for="Nombre Largo">Nombre largo</asp:Label>
