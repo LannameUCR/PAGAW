@@ -191,14 +191,14 @@
         cantidadRegistrosTable = $("#" + '<%= hdCantidadRegistros.ClientID %>').val();
         if ($("select[name=tblUA_length] option[value=" + cantidadRegistrosTable + "]").length == 1) {
             $('select[name=tblUA_length]').val(cantidadRegistrosTable);
-            alert($('select[name=tblUA_length]').val());
+            //alert($('select[name=tblUA_length]').val());
         } else {
             $('select[name=tblUA_length]').append($('<option>', {
                 value: cantidadRegistrosTable,
                 text: cantidadRegistrosTable
             }));
             $('select[name=tblUA_length]').val(cantidadRegistrosTable);
-            alert($('select[name=tblUA_length]').val());
+            //alert($('select[name=tblUA_length]').val());
         }
         $("#tblUA  input").on('keyup change', function () {
             table

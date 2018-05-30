@@ -58,7 +58,8 @@
                     </div>
                     <%# Eval("nombre_largo_aplicacion") %>
                     <input type="hidden" id="hdIdApp" runat="server" />
-                    <input type="hidden" id="hdIdActivo" runat="server" />
+                    <input type="hidden" id="hdIdActivo" runat="server" />                    
+                    <input type="hidden" id="hdTipoServidor" runat="server" />
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
@@ -142,10 +143,11 @@
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
           archivo json creador en la programacion del webService*/
+        tipoServidor = $("#" + '<%= hdTipoServidor.ClientID %>').val();
         var table = $('#tblaplicaciones').DataTable({
             Processing: true,
             ServerSide: true,
-            "sAjaxSource": 'Administracion/aplicaciones.asmx/getTodasAplicaciones',
+            "sAjaxSource": 'Administracion/aplicaciones.asmx/getTodasAplicaciones(' + tipoServidor + ')',
             //se utilizar cuando se necesita meter parametros en el metodo del WS.
             "fnServerParams": function (aoData) {
                 aoData.push({ "name": "hdIdApp", "value": idOculto });
