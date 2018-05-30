@@ -109,6 +109,8 @@
     <Content Include="Administracion\EliminarUnidadAdministrativa.aspx" />
     <Content Include="Administracion\GestionarParametros.aspx" />
     <Content Include="Administracion\InsertarAplicacion.aspx" />
+    <Content Include="Administracion\InsertarDatoBitacoraVersiones.aspx" />
+    <Content Include="Administracion\ActualizarBitacora.aspx" />
     <Content Include="AdministradorUnidadAdministrativa.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
     <Content Include="Ayuda.aspx" />
@@ -116,6 +118,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="AdministrarBitacoraVersiones.aspx" />
     <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Content\DataTables\Images\details_close.png" />
     <Content Include="Content\DataTables\Images\details_open.png" />
@@ -271,6 +274,30 @@
     <Compile Include="Administracion\InsertarAplicacion.aspx.designer.cs">
       <DependentUpon>InsertarAplicacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administracion\InsertarDatoBitacoraVersiones.aspx.cs">
+      <DependentUpon>InsertarDatoBitacoraVersiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+
+
+    <Compile Include="Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+	</Compile>
+
+    <Compile Include="Administracion\InsertarDatoBitacoraVersiones.aspx.designer.cs">
+      <DependentUpon>InsertarDatoBitacoraVersiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\ActualizarBitacora.aspx.cs">
+      <DependentUpon>ActualizarBitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\ActualizarBitacora.aspx.designer.cs">
+      <DependentUpon>ActualizarBitacora.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdministradorUnidadAdministrativa.aspx.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -278,12 +305,13 @@
     <Compile Include="AdministradorUnidadAdministrativa.aspx.designer.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Ayuda.aspx.cs">
-      <DependentUpon>Ayuda.aspx</DependentUpon>
+
+    <Compile Include="AdministrarBitacoraVersiones.aspx.cs">
+      <DependentUpon>AdministrarBitacoraVersiones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Ayuda.aspx.designer.cs">
-      <DependentUpon>Ayuda.aspx</DependentUpon>
+    <Compile Include="AdministrarBitacoraVersiones.aspx.designer.cs">
+      <DependentUpon>AdministrarBitacoraVersiones.aspx</DependentUpon>
     </Compile>
     <Compile Include="InsertarUnidadAdministrativa.aspx.cs">
       <DependentUpon>InsertarUnidadAdministrativa.aspx</DependentUpon>

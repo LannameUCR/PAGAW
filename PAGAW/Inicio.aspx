@@ -31,7 +31,7 @@
                                 <label class="control-label control-label-left col-sm-3" for="app_search">Aplicación</label>
                                 <div class="controls col-sm-9">
                                     <div id="field2" class="input-group">
-                                        <input type="text" class="form-control" data-role="lookup" placeholder="CBI" name="app_search" id="app_search"/>
+                                        <input type="text" class="form-control" data-role="lookup" placeholder="CBI" name="app_search" id="app_search" onkeyup="buscarAplicaciones()">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
                                     </div>
                                 </div>
@@ -145,7 +145,28 @@
                         $("h4.modal-title").text(subjname);
                     })
                 })
-            </script>
+
+                function buscarAplicaciones() {
+                    
+                }
+
+    $(document).ready(function(){
+        $('#showDescripcion').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget);
+          var subjdes = button.data('whatever');
+          var subjname = button.data('name');
+
+
+
+          $('#subjdes').val(subjdes);
+
+          $("h4.modal-title").text(subjname);
+    
+
+
+        })
+    })
+</script>
         </div>
     </div>
 </asp:Content>

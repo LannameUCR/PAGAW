@@ -18,12 +18,16 @@ namespace PAGAW.Administracion
 
         #region variables globales
         AplicacionServicios appServicios = new AplicacionServicios();
+        List<ObjectoFileChooser> listaObjetoFileChooser = new List<ObjectoFileChooser>();
+        UnidadAdministrativaServicios unidadServicios = new UnidadAdministrativaServicios();
+        AplicacionServicios appService = new AplicacionServicios();
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
                 Aplicacion appActualizar = (Aplicacion)Session["appActualizar"];
                 txtIdApp.Text = appActualizar.id_aplicacion + "";
                 txtNombreLargo.Text = appActualizar.nombre_largo_aplicacion;
@@ -34,7 +38,48 @@ namespace PAGAW.Administracion
                 txtVersion_aplicacion.Text = appActualizar.version_aplicacion;
                 txtUrlServidor.Text = appActualizar.url;
 
+                //
+                txtImagenAplicacion.Visible = false;
+                rpImagenAplicacion.Visible = true;
+
+                txtCodigoZIP.Visible = false;
+                rpCodigoZIP.Visible = true;
+
+                txtCodigoFuente.Visible = false;
+                rpCodigoFuente.Visible = true;
+
+                //Imagen de aplicación
+                listaObjetoFileChooser.Add(new ObjectoFileChooser(appActualizar.id_aplicacion, appActualizar.imagen, appActualizar.imagen));
+
+                rpImagenAplicacion.DataSource = listaObjetoFileChooser;
+                rpImagenAplicacion.DataBind();
+
+                //Código ZIP de aplicación
+                listaObjetoFileChooser.Clear();
+                listaObjetoFileChooser.Add(new ObjectoFileChooser(appActualizar.id_aplicacion, appActualizar.paquete_instalacion, appActualizar.paquete_instalacion));
+
+                rpCodigoZIP.DataSource = listaObjetoFileChooser;
+                rpCodigoZIP.DataBind();
+
+                //Código fuente de aplicación
+                listaObjetoFileChooser.Clear();
+                listaObjetoFileChooser.Add(new ObjectoFileChooser(appActualizar.id_aplicacion, appActualizar.codigo_aplicacion, appActualizar.codigo_aplicacion));
+
+                rpCodigoFuente.DataSource = listaObjetoFileChooser;
+                rpCodigoFuente.DataBind();
+
+                this.BindRepeater();
             }
+        }
+
+        private void BindRepeater()
+        {
+            List<UnidadAdministrativa> listaUnidades = unidadServicios.getUAs();
+
+            dpUnidadAdministrativa.DataSource = listaUnidades;
+            dpUnidadAdministrativa.DataTextField = "nombre_ua";
+            dpUnidadAdministrativa.DataValueField = "id_ua";
+            dpUnidadAdministrativa.DataBind();
         }
 
         protected void btnActualizar_Click(object sender, EventArgs e)
@@ -103,6 +148,11 @@ namespace PAGAW.Administracion
         {
             String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
             Response.Redirect(url);
+        }
+
+        protected void dpUnidadAdministrativa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }

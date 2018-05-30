@@ -34,10 +34,6 @@ namespace PAGAW.Administracion
         }
         #endregion
         #region acciones de botones
-        protected void Unnamed1_Click(object sender, EventArgs e)
-        {
-
-        }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             int idApp = Convert.ToInt32(hdIdApp.Value);
@@ -58,7 +54,7 @@ namespace PAGAW.Administracion
             Response.Redirect(url);
         }
 
-        protected void btnInsertar_Click1(object sender, EventArgs e)
+        protected void btnInsertar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Administracion/InsertarAplicacion.aspx");
         }

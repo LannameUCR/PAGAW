@@ -45,6 +45,9 @@
     <Compile Include="BaseDatos.cs" />
     <Compile Include="Parametros.cs" />
     <Compile Include="cantidadDeRegistros.cs" />
+    <Compile Include="BitacoraDeVersiones.cs" />
+    <Compile Include="ObjectoFileChooser.cs" />
+
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnidadAdministrativa.cs" />
   </ItemGroup>
