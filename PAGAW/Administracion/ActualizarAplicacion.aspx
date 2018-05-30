@@ -76,7 +76,7 @@
                     <label for="imagen" class="col-sm-2 col-form-label">Imágen</label>
                     <div class="col-sm-10">
                         <div class="custom-file" style="width:30%;">
-                            <asp:FileUpload ID="fuImagen" runat="server" />
+                            <asp:FileUpload ID="fuImagen" class="custom-file-input" runat="server" />
                         </div>
                     </div>
                 </div>           

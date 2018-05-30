@@ -30,6 +30,7 @@ namespace PAGAW.Administracion
                 txtNombreCorto.Text = appActualizar.nombre_corto_aplicacion;
                 txtDescripcion_larga.Text = appActualizar.descripcion_larga_app;
                 txtDescripcion_corta.Text = appActualizar.descripcion_corta_app;
+
                 txtVersion_aplicacion.Text = appActualizar.version_aplicacion;
                 txtUrlServidor.Text = appActualizar.url;
 
@@ -45,9 +46,8 @@ namespace PAGAW.Administracion
             string pathZIP = path + "ZIP\\zip";
             string pathPaquete = path + "PAQUETE\\codigo";
             string imagePath = SaveFile(fuImagen, anno, pathImage);
-            string zipPath = SaveFile(fuImagen, anno, pathZIP);
-            string paquetePath = SaveFile(fuImagen, anno, pathPaquete);
-
+            string zipPath = SaveFile(fupCodigoZip, anno, pathZIP);
+            string paquetePath = SaveFile(fuCodigoFuente, anno, pathPaquete);
 
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
 
@@ -87,7 +87,7 @@ namespace PAGAW.Administracion
             // mismo nombre que el archivo que desea cargar .       
             if ((System.IO.File.Exists(pathToCheck)))
             {
-                return null; //El archivo existe
+                return pathToCheck; //El archivo existe
             }
             else
             {

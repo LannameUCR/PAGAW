@@ -25,10 +25,10 @@
     <!-- Table -->
     <script src='<%=Page.ResolveUrl("~/Scripts/datatables.min.js") %>'></script>
 
-    <script src='<%=Page.ResolveUrl("~/Scripts/bootstrap-dialog.js") %>'></script>
+
     <script src='<%=Page.ResolveUrl("~/Scripts/Dialogo.js") %>'></script>
     <title>PAGAW</title>
-    <link rel="icon" href='<%=Page.ResolveUrl("~/Imagenes/favicon.ico") %>' />
+
 
   <%-- Estilos con formato UCR         
     <link href="css/Lanamme.css" rel="stylesheet" />
@@ -112,9 +112,7 @@
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/AdministradorUnidadAdministrativa.aspx") %>'>Gestionar Unidad Administrativa</a>
                                     </li>
-                                    <li>
-                                        <a href='<%=Page.ResolveUrl("~/Administracion/Ayuda.aspx") %>'>Ayuda</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                             <div id="menu_normal" Visible="true" runat="server">
@@ -125,6 +123,9 @@
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/Inicio.aspx") %>'>Pruebas</a>
                                     </li>  
+                                    <li>
+                                        <a href='<%=Page.ResolveUrl("~/Ayuda.aspx") %>'>Ayuda</a>
+                                    </li>
                                 </ul>
                             </div>
                             <%------------------------------FIN DE LOS MENUS ---------------------------%>

@@ -3,9 +3,9 @@
   <baseBI>PAGAW_DB</baseBI>
   <baseLogin>Login_PAGAW</baseLogin>
   <servidorBI>163.178.173.148</servidorBI>
-  <usuarioBI>estudiantes</usuarioBI>
-  <contrasenaBI>estudiantes</contrasenaBI>
-  <servidorLogin>163.178.173.148</servidorLogin>
-  <usuarioLogin>estudiantes</usuarioLogin>
-  <contrasenaLogin>estudiantes</contrasenaLogin>
+  <usuarioBI>info</usuarioBI>
+  <contrasenaBI>info</contrasenaBI>
+  <servidorLogin>USER\SQLEXPRESS</servidorLogin>
+  <usuarioLogin>sa</usuarioLogin>
+  <contrasenaLogin>123</contrasenaLogin>
 </BaseDatos>
