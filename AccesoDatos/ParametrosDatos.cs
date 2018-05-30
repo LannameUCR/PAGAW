@@ -35,7 +35,7 @@ namespace AccesoDatos
             sqlConnection.Close();            
         }
 
-        public void cargarParametrosPorDefecto()
+        public bool cargarParametrosPorDefecto()
         {
             SqlConnection sqlConnection = conexion.conexionBI();
 
@@ -48,6 +48,10 @@ namespace AccesoDatos
 
             reader = cmd.ExecuteReader();
 
+            if (reader == null)
+            {
+                return false;
+            }
             while (reader.Read())
             {
                 Parametros.getInstance().CantidadRegistros = Convert.ToInt32(reader["cantidad_registros"]);
@@ -56,6 +60,7 @@ namespace AccesoDatos
                 Parametros.getInstance().RutaArchivos = reader["ruta_absoluta_Sarchivos"].ToString();
             }
             sqlConnection.Close();
+            return true;
         }
 
         public bool modificarParametros()
@@ -65,10 +70,10 @@ namespace AccesoDatos
             String sql = "sp_modificar_parametros";
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("cantidad_registros", SqlDbType.Int).Value = Parametros.getInstance().CantidadRegistros;
-            cmd.Parameters.Add("ruta_absoluta_Spruebas", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaPruebas;
-            cmd.Parameters.Add("ruta_absoluta_Sproduccion", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaProduccion;
-            cmd.Parameters.Add("ruta_absoluta_Sarchivos", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaArchivos;
+            cmd.Parameters.Add("cantidadRegistros", SqlDbType.Int).Value = Parametros.getInstance().CantidadRegistros;
+            cmd.Parameters.Add("rutaPruebas ", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaPruebas;
+            cmd.Parameters.Add("rutaProduccion", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaProduccion;
+            cmd.Parameters.Add("rutaArchivos", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaArchivos;
 
             sqlConnection.Open();
 

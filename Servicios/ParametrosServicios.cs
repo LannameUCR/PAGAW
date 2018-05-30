@@ -16,9 +16,9 @@ namespace Servicios
             parametrosDatos.obtenerParametros();
         }
 
-        public void cargarParametrosPorDefecto()
+        public bool cargarParametrosPorDefecto()
         {
-            parametrosDatos.cargarParametrosPorDefecto();
+            return parametrosDatos.cargarParametrosPorDefecto();
         }
 
         public bool modificarParametros()

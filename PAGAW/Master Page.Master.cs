@@ -31,10 +31,6 @@ namespace PAGAW
             {
                 parametrosServicios.obtenerParametros();
                 Session["parametros"] = true;
-                System.Diagnostics.Debug.Write(Parametros.getInstance().CantidadRegistros);
-                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaPruebas);
-                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaProduccion);
-                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaArchivos);
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
