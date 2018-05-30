@@ -129,6 +129,7 @@
     <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
     <Content Include="css\pagination.min.css" />
     <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="Imagenes\item1.png" />
     <Content Include="InsertarUnidadAdministrativa.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ModificarUnidadAdministrativa.aspx" />
@@ -278,16 +279,13 @@
       <DependentUpon>InsertarDatoBitacoraVersiones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-
-
     <Compile Include="Ayuda.aspx.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Ayuda.aspx.designer.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>
-	</Compile>
-
+    </Compile>
     <Compile Include="Administracion\InsertarDatoBitacoraVersiones.aspx.designer.cs">
       <DependentUpon>InsertarDatoBitacoraVersiones.aspx</DependentUpon>
     </Compile>
@@ -305,7 +303,6 @@
     <Compile Include="AdministradorUnidadAdministrativa.aspx.designer.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
-
     <Compile Include="AdministrarBitacoraVersiones.aspx.cs">
       <DependentUpon>AdministrarBitacoraVersiones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -144,14 +144,14 @@
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
           archivo json creador en la programacion del webService*/
         tipoServidor = $("#" + '<%= hdTipoServidor.ClientID %>').val();
-        alert(tipoServidor);
+      
         var table = $('#tblaplicaciones').DataTable({
             Processing: true,
             ServerSide: true,
-            "sAjaxSource": 'Administracion/aplicaciones.asmx/getAppsTipoServidor',
+            "sAjaxSource": 'Administracion/aplicaciones.asmx/getApps',
             //se utilizar cuando se necesita meter parametros en el metodo del WS.
             "fnServerParams": function (aoData) {
-                aoData.push({ "name": "hdTipoServidor", "value": tipoServidor });
+               
 
                 aoData.push({ "name": "hdIdApp", "value": idOculto });
             },

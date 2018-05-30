@@ -28,10 +28,11 @@ namespace PAGAW.Administracion
 
     public class WebService1 : System.Web.Services.WebService
     {
-        //UnidadAdministrativaServicios UAservices = new UnidadAdministrativaServicios();
+        UnidadAdministrativaServicios UAservices = new UnidadAdministrativaServicios();
 
         AplicacionServicios appServices = new AplicacionServicios();
         BitacoraDeVersionesServicios bitacoraServices = new BitacoraDeVersionesServicios();
+
 
         [WebMethod]
         public void getTodasAplicaciones(string tipoServidor) 
@@ -51,7 +52,24 @@ namespace PAGAW.Administracion
             js.MaxJsonLength = Int32.MaxValue;
             Context.Response.Write(js.Serialize(resultado));
         }
-
+        [WebMethod]
+        public void getApps()
+        {
+            //se trae la lista como en cualquier metodo
+            List<Aplicacion> listaAplicaciones = appServices.getApps();
+            // en la variable se mete los datos necesario para que se genere el archivo json.
+            var resultado = new
+            {
+                iTotalRecords = listaAplicaciones.Count,
+                iTotalDisplayRecords = listaAplicaciones.Count,
+                aaData = listaAplicaciones
+            };
+            //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
+            //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            js.MaxJsonLength = Int32.MaxValue;
+            Context.Response.Write(js.Serialize(resultado));
+        }
         [WebMethod]
         public void getDatosBitacora()
         {
@@ -76,9 +94,9 @@ namespace PAGAW.Administracion
         public void getTodasUnidadesAdministrativas()
         {
             //se trae la lista como en cualquier metodo
-            //List<UnidadAdministrativa> listaUnidades = UAservices.getUAs();
+            List<UnidadAdministrativa> listaUnidades = UAservices.getUAs();
             // en la variable se mete los datos necesario para que se genere el archivo json.
-           /* var resultado = new
+            var resultado = new
             {
                 iTotalRecords = listaUnidades.Count,
                 iTotalDisplayRecords = listaUnidades.Count,
@@ -88,7 +106,7 @@ namespace PAGAW.Administracion
             //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.
             JavaScriptSerializer js = new JavaScriptSerializer();
             js.MaxJsonLength = Int32.MaxValue;
-            Context.Response.Write(js.Serialize(resultado));*/
+            Context.Response.Write(js.Serialize(resultado));
         }
     }
 }
