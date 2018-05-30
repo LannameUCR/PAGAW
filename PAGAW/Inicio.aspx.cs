@@ -19,19 +19,22 @@ namespace PAGAW
  
         AplicacionServicios appService = new AplicacionServicios();
         List<Aplicacion> listaApps = new List<Aplicacion>();
-
+        cantidadDeRegistros numeroPaginas = new cantidadDeRegistros();
         ParametrosServicios parametrosServicios = new ParametrosServicios();
-        static string selectedRegister="3";
+        string selectedRegister;
         readonly PagedDataSource _pgsource = new PagedDataSource();
         int _firstIndex, _lastIndex;
-        private int _pageSize = 3;
+        private int _pageSize;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
             {
                 parametrosServicios.obtenerParametros();
                 _pageSize = Parametros.getInstance().CantidadRegistros;
+                Session["numeroPaginas"] = numeroPaginas.numero = 3;
                 Session["listaapps"] = appService.getApps();
+                Session["listaapps"] = appService.getApps();
+
                 this.BindDataIntoRepeater();
                 BindRepeater();
             }
@@ -92,14 +95,7 @@ namespace PAGAW
         }
 
 
-        
-
-        private  void setQuantity() {
-            _pageSize= Convert.ToInt32(selectedRegister);
-
-        }
-
-       
+             
 
         private int CurrentPage
         {
@@ -126,7 +122,7 @@ namespace PAGAW
             _pgsource.DataSource = dt;
             _pgsource.AllowPaging = true;
             // Number of items to be displayed in the Repeater
-            _pgsource.PageSize = _pageSize;
+            _pgsource.PageSize =(int) Session["numeroPaginas"];
             _pgsource.CurrentPageIndex = CurrentPage;
             // Keep the Total pages in View State
             ViewState["TotalPages"] = _pgsource.PageCount;
@@ -153,6 +149,8 @@ namespace PAGAW
             // Call the function to do paging
             HandlePaging();
         }
+
+      
 
         private void HandlePaging()
         {
@@ -221,7 +219,8 @@ namespace PAGAW
         protected void repeter_length_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedRegister = repeter_length.SelectedValue;
-            this.setQuantity();
+            Session["numeroPaginas"]=numeroPaginas.numero = Convert.ToInt32(repeter_length.SelectedValue);
+            CurrentPage = 0;
             this.BindDataIntoRepeater();
 
         }
