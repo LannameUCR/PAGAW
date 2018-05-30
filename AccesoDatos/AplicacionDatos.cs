@@ -13,7 +13,7 @@ namespace AccesoDatos
     {
         private ConexionDatos conexion = new ConexionDatos();
 
-        public List<Aplicacion> getApps()
+        public List<Aplicacion> getApps(string tipoServidor)
         {
             List<Aplicacion> listaApps = new List<Aplicacion>();
             SqlConnection sqlConnection = conexion.conexionBI();
@@ -23,6 +23,7 @@ namespace AccesoDatos
             sql = "sp_obtener_aplicaciones";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
+            cmd.Parameters.Add("tipoServidor", SqlDbType.NVarChar).Value = tipoServidor;
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader;

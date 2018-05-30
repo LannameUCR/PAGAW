@@ -67,13 +67,14 @@ namespace PAGAW
                 numeroParametro.numero = _pageSize;
                 numeroParametro.Numero_String = _pageSize.ToString();
                 registros.Add(numeroParametro);
+                repeter_length.SelectedIndex = 2;
             }
             repeter_length.DataSource = registros;
+            
             repeter_length.DataTextField = "Numero_String";
 
             repeter_length.DataValueField = "numero";
-            repeter_length.DataBind();
-
+            repeter_length.DataBind();            
 
             List<UnidadAdministrativa> listaUnidades = unidadServicios.getUAs();
 
