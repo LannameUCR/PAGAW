@@ -58,6 +58,7 @@
                     </div>
                     <%# Eval("nombre_ua") %>
                     <input type="hidden" id="hdIdUA" runat="server" />
+                    <input type="hidden" id="hdCantidadRegistros" runat="server" />
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
@@ -103,7 +104,7 @@
         </div>
     </div>
     <!--Fin Tabla 1 -->
-    <script type="text/javascript">
+    <script type="text/javascript">        
         $('#tblUA  tr#filterrow th').each(function () {
             var campoBusqueda = $('#tblUA  th').eq($(this).index()).text();
             $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
@@ -115,7 +116,7 @@
           La caracteristica principal de esta table es que se hace server-side
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
-          archivo json creador en la programacion del webService*/
+          archivo json creador en la programacion del webService*/        
         var table = $('#tblUA').DataTable({
             Processing: true,
             ServerSide: true,
@@ -135,8 +136,7 @@
                         var buttonID = full.id_ua;
                         return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
                     }
-                },    
-        
+                },            
         { 'data': 'nombre_ua' },
         { 'data': 'descripcion_larga' },
         { 'data': 'descripcion_corta' },
@@ -187,7 +187,19 @@
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             }
-        });
+        });      
+        cantidadRegistrosTable = $("#" + '<%= hdCantidadRegistros.ClientID %>').val();
+        if ($("select[name=tblUA_length] option[value=" + cantidadRegistrosTable + "]").length == 1) {
+            $('select[name=tblUA_length]').val(cantidadRegistrosTable);
+            alert($('select[name=tblUA_length]').val());
+        } else {
+            $('select[name=tblUA_length]').append($('<option>', {
+                value: cantidadRegistrosTable,
+                text: cantidadRegistrosTable
+            }));
+            $('select[name=tblUA_length]').val(cantidadRegistrosTable);
+            alert($('select[name=tblUA_length]').val());
+        }
         $("#tblUA  input").on('keyup change', function () {
             table
                 .column($(this).parent().index() + ':visible')
@@ -209,7 +221,7 @@
         }
         function Eliminar(id) {
             document.getElementById("<%=hdIdUA.ClientID%>").value = id;
-            document.getElementById("<%= btnEliminar.ClientID%>").click();
+            document.getElementById("<%=btnEliminar.ClientID%>").click();
         }
 
         function seleccionar(idSeleccionado) {
@@ -218,7 +230,7 @@
 
         function Habilitar_Deshabilitar(idSeleccionado) {
 
-        };
+        }; 
     </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">

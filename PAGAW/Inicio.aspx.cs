@@ -14,12 +14,12 @@ namespace PAGAW
         UnidadAdministrativaServicios unidadServicios = new UnidadAdministrativaServicios();
         AplicacionServicios appService = new AplicacionServicios();        
 
-        List<Aplicacion> listaApps = new List<Aplicacion>();
+        List<Aplicacion> listaApps = new List<Aplicacion>();        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
-            {
+            {                
                 this.BindRepeater();
             }
         }

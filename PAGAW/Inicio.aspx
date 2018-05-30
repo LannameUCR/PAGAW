@@ -51,7 +51,7 @@
                         <div class="row">
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <%# (Container.ItemIndex +1) % 4 == 0 ? "<HeaderTemplate> <div class='container'><div class='row'></HeaderTemplate>  <FooterTemplate> </div> </div> </FooterTemplate>" : string.Empty %>
+                    <%# (Container.ItemIndex + 1) % 4 == 0 ? "<HeaderTemplate> <div class='container'><div class='row'></HeaderTemplate>  <FooterTemplate> </div> </div> </FooterTemplate>" : string.Empty %>
                     <div class="col-sm-4 ">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">

@@ -12,7 +12,7 @@ namespace PAGAW
     public partial class AdministradorUnidadAdministrativa : System.Web.UI.Page
     {
         UnidadAdministrativaServicios UaServicios = new UnidadAdministrativaServicios();
-
+        public int cantidadRegistros = Parametros.getInstance().CantidadRegistros;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -20,6 +20,7 @@ namespace PAGAW
 
                 Session["listaUnidades"] = null;
                 hdIdUA.Value = "";
+                hdCantidadRegistros.Value = "" + cantidadRegistros;
                 List<UnidadAdministrativa> listaUas = UaServicios.getUAs();
                 Session["listaUnidades"] = listaUas;
 
