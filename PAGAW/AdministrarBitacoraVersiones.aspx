@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministradorAplicaciones.aspx.cs" Inherits="PAGAW.Administracion.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master Page.Master" AutoEventWireup="true" CodeBehind="AdministrarBitacoraVersiones.aspx.cs" Inherits="PAGAW.BitacoraVersiones" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <meta name="HandheldFriendly" content="True" />
+    <%--<meta name="HandheldFriendly" content="True" />--%>
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cleartype" content="on" />
@@ -44,7 +44,7 @@
     --%>
     <div class="panel panel-default apps">
         <div class="panel-heading">
-            <h3 class="panel-title">Aplicaciones</h3>
+            <h3 class="panel-title">Bitácora versiones</h3>
         </div>
         <div class="panel-body">
             <div class="divRedondo">
@@ -56,70 +56,44 @@
                             <asp:Label ID="lbl_Apps" runat="server" Font-Size="Large" ForeColor="Black"></asp:Label>
                         </center>
                     </div>
-                    <%# Eval("nombre_largo_aplicacion") %>
-                    <input type="hidden" id="hdIdApp" runat="server" />
+                    <%# Eval("nombre_usuario") %>
+                    <input type="hidden" id="hdIdDato" runat="server" />
                     <input type="hidden" id="hdIdActivo" runat="server" />
                     <%-- Fila para la busqueda en el footer --%>
                     <!--Tabla 1 -->
                     <div class="col-md-12 col-xs-12 col-sm-12" style="text-align: center; overflow-y: auto;">
-                        <table id="tblaplicaciones" class="table table-bordered dt-responsive nowrap">
+                        <table id="tblBitacora" class="table table-bordered dt-responsive nowrap">
 
                             <thead style="background-color: #337ab7; color: white">
                                 <tr>
                                     <th>Acciónes</th>
-                                    <th>Nombre largo</th>
-                                    <th>Nombre corto</th>
-                                    <th>Descripción larga</th>
-                                    <th>Descripción corta</th>
-                                    <th>Versión</th>
-                                    
-                                    <th>Código Fuente</th>
-                                    <th>Paquete Instalación</th>
-                                    <th>Url</th>
-                                    <th >Servidor</th>
-                                    <th >Imagen Url</th> 
-
+                                    <th>Nombre usuario</th>
+                                    <th>Fecha de operacion</th>
+                                    <th>Descripción</th>
                                 </tr>
                             </thead>
-                            <td><%# Eval("nombre_largo_aplicacion") %></td>
-                            <tr class='<%# Eval("nombre_largo_aplicacion")%>'>
-                                <td><%# Eval("nombre_largo_aplicacion") %></td>
+                            <td><%# Eval("nombre_usuario") %></td>
+                            <tr class='<%# Eval("nombre_usuario")%>'>
+                                <td><%# Eval("nombre_usuario") %></td>
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%-- Aqui agregamos los valores del objeto para que sea reconocibles --%></td>
-                                <td><%# Eval("descripcion_larga_app") %></td>
-                                <td><%# Eval("descripcion_corta_app") %></td>
-
-
-                                <td><%-- Fila para la busqueda en el footer --%></td>
-                                <td><%# Eval("version_aplicacion") %></td>
+                                <td><%# Eval("fecha_de_operacion") %></td>
+                                <td><%# Eval("descripcion") %></td>
 
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
                             <tfoot>
                                 <thead>
-                                    <tr id="filterrow">
-                                        <td></td>                              
-                                        <th>Nombre largo</th>
-                                        <th>Nombre corto</th>
-                                        <th>Descripción larga</th>
-                                        <th>Descripción corta</th>
-                                        <th>Versión</th>                 
-                                        <th>Código Fuente</th>
-                                        <th>Paquete Instalación</th>
-                                        <th>Url</th>
-                                        <th >Servidor</th>
-                                        <th >Imagen Url</th> 
-                                    </tr>
+                                    
                                 </thead>
                             </tfoot>
                             <tr>
                                 <td>
-                                    <asp:Button ID="btnInsertar" runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar" OnClick="btnInsertar_Click"/>
+                                    <asp:Button ID="btnInsertar" runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar"/>
                                 </td>
                             </tr>
                         </table>
-                        <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
-                        <asp:LinkButton ID="btnActualizar" runat="server" OnClick="btnActualizar_Click" CssClass="hidden"></asp:LinkButton>
+                        <asp:LinkButton ID="btnActualizar" runat="server" OnClick="btnActualizar_Click"  CssClass="hidden"></asp:LinkButton>
                     </div>
                 </div>
             </div>
@@ -129,11 +103,7 @@
     <!--Fin Tabla 1 -->
     <script type="text/javascript">
 
-        $('#tblaplicaciones  tr#filterrow th').each(function () {
-            var campoBusqueda = $('#tblaplicaciones  th').eq($(this).index()).text();
-            $(this).html('<input type="text" style="text-align: center" onclick="stopPropagation(event);" placeholder="Buscar ' + campoBusqueda + '" />');
-        });
-        var idOculto = $("#<%= hdIdApp.ClientID %>").val();
+        var idOculto = $("#<%= hdIdDato.ClientID %>").val();
         /*Aqui creamos la tabla con DataTables
           todas las propiedades del DataTable deben ser seteadas desde aqui y
           no desde el CodeBehind. 
@@ -142,13 +112,13 @@
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
           archivo json creador en la programacion del webService*/
-        var table = $('#tblaplicaciones').DataTable({
+        var table = $('#tblBitacora').DataTable({
             Processing: true,
             ServerSide: true,
-            "sAjaxSource": 'Administracion/aplicaciones.asmx/getTodasAplicaciones',
+            "sAjaxSource": 'Administracion/aplicaciones.asmx/getDatosBitacora',
             //se utilizar cuando se necesita meter parametros en el metodo del WS.
             "fnServerParams": function (aoData) {
-                aoData.push({ "name": "hdIdApp", "value": idOculto });
+                aoData.push({ "name": "hdIdDato", "value": idOculto });
             },
 
             sServerMethod: 'post',
@@ -159,24 +129,14 @@
                     /*Asignamos que los botones tengan como valor el id de la app que trae el archivo json*/
                     sortable: false,
                     "render": function (data, type, full, meta) {
-                        var buttonID = full.id_aplicacion;
-                        return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
-
-
+                        var buttonID = full.id_Bitacora;
+                        //return '<a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a>';
+                        return '</a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a>';
                     }
                 },
-        { 'data': 'nombre_largo_aplicacion' },
-        { 'data': 'nombre_corto_aplicacion' },
-        { 'data': 'descripcion_larga_app' },
-        { 'data': 'descripcion_corta_app' },
-        { 'data': 'version_aplicacion' },
-       
-        { 'data': 'codigo_aplicacion' },
-        { 'data': 'paquete_instalacion' },
-        { 'data': 'url' },
-        { 'data': 'tipo_servidor' },
-        { 'data': 'imagen' },
-
+        { 'data': 'nombre_usuario' },
+        { 'data': 'fecha_de_operacion' },
+        { 'data': 'descripcion' },
 
             ],
             "rowCallback": function (row, data, index) {
@@ -235,7 +195,7 @@
 
 
         });
-        $("#tblaplicaciones  input").on('keyup change', function () {
+        $("#tblBitacora  input").on('keyup change', function () {
             table
                 .column($(this).parent().index() + ':visible')
                 .search(this.value)
@@ -256,22 +216,12 @@
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
         function Modificar(id) {
-            document.getElementById("<%=hdIdApp.ClientID%>").value = id;
+            document.getElementById("<%=hdIdDato.ClientID%>").value = id;
 
             document.getElementById("<%= btnActualizar.ClientID%>").click();
-
-        }
-
-        function Eliminar(id) {
-
-            document.getElementById("<%=hdIdApp.ClientID%>").value = id;
-            document.getElementById("<%= btnEliminar.ClientID%>").click();
         }
 
         function seleccionar(idSeleccionado) {
-
-        };
-        function Habilitar_Deshabilitar(idSeleccionado) {
 
         };
     </script>

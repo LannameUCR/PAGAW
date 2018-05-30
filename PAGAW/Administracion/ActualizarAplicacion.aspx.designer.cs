@@ -67,6 +67,33 @@ namespace PAGAW.Administracion {
         protected global::System.Web.UI.WebControls.TextBox txtVersion_aplicacion;
         
         /// <summary>
+        /// dpUnidadAdministrativa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dpUnidadAdministrativa;
+        
+        /// <summary>
+        /// rpCodigoZIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpCodigoZIP;
+        
+        /// <summary>
+        /// txtCodigoZIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoZIP;
+        
+        /// <summary>
         /// fupCodigoZip control.
         /// </summary>
         /// <remarks>
@@ -74,6 +101,24 @@ namespace PAGAW.Administracion {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fupCodigoZip;
+        
+        /// <summary>
+        /// rpCodigoFuente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpCodigoFuente;
+        
+        /// <summary>
+        /// txtCodigoFuente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCodigoFuente;
         
         /// <summary>
         /// fuCodigoFuente control.
@@ -103,6 +148,24 @@ namespace PAGAW.Administracion {
         protected global::System.Web.UI.WebControls.DropDownList ddlTipoServidor;
         
         /// <summary>
+        /// rpImagenAplicacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rpImagenAplicacion;
+        
+        /// <summary>
+        /// txtImagenAplicacion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtImagenAplicacion;
+        
+        /// <summary>
         /// fuImagen control.
         /// </summary>
         /// <remarks>
@@ -112,21 +175,21 @@ namespace PAGAW.Administracion {
         protected global::System.Web.UI.WebControls.FileUpload fuImagen;
         
         /// <summary>
-        /// btnActualizar control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualizar;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// btnCancelar control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelar;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
