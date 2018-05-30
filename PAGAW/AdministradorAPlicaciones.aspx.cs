@@ -23,11 +23,11 @@ namespace PAGAW.Administracion
             //Utilidades.escogerMenu(Page, rolesPermitidos);
             if (!Page.IsPostBack)
             {
-                string tipoServidor= Request["servidor"];
+                string tipoServidor= "Pruebas";
                 hdTipoServidor.Value = tipoServidor;
                 Session["listaAplicaciones"] = null;
                 hdIdApp.Value = "";
-                List<Aplicacion> listaApps = appServicios.getApps(tipoServidor);
+                List<Aplicacion> listaApps = appServicios.getAppsTipoServidor(tipoServidor);
                 Session["listaAplicaciones"] = listaApps;
 
             }

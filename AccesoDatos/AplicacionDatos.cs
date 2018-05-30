@@ -13,7 +13,7 @@ namespace AccesoDatos
     {
         private ConexionDatos conexion = new ConexionDatos();
 
-        public List<Aplicacion> getApps(string tipoServidor)
+        public List<Aplicacion> getApps()
         {
             List<Aplicacion> listaApps = new List<Aplicacion>();
             SqlConnection sqlConnection = conexion.conexionBI();
@@ -23,7 +23,6 @@ namespace AccesoDatos
             sql = "sp_obtener_aplicaciones";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
-            cmd.Parameters.Add("tipoServidor", SqlDbType.NVarChar).Value = tipoServidor;
             cmd.CommandType = CommandType.StoredProcedure;
 
             SqlDataReader reader;
@@ -54,6 +53,51 @@ namespace AccesoDatos
             sqlConnection.Close();
             return listaApps;
 
+        }
+
+        public List<Aplicacion> getAppsTipoServidor(string tipoServidor)
+        {
+            List<Aplicacion> listaApps = new List<Aplicacion>();
+            SqlConnection sqlConnection = conexion.conexionBI();
+
+            String sql = "";
+
+            sql = "sp_obtener_aplicaciones_servidor";
+
+            SqlCommand cmd = new SqlCommand(sql, sqlConnection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //definir el parametro no output
+            SqlParameter tipo_servidor_parametro = new SqlParameter("@tipoServidor", tipoServidor);
+            cmd.Parameters.Add(tipo_servidor_parametro);
+
+            SqlDataReader reader;
+            sqlConnection.Open();
+            reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Aplicacion app = new Aplicacion();
+
+                app.id_aplicacion = Convert.ToInt32(reader["id_aplicacion"].ToString());
+                app.nombre_largo_aplicacion = reader["nombre_largo_aplicacion"].ToString();
+                app.nombre_corto_aplicacion = reader["nombre_corto_aplicacion"].ToString();
+                app.descripcion_larga_app = reader["descripcion_larga_app"].ToString();
+                app.descripcion_larga_app = reader["descripcion_corta_app"].ToString();
+                app.descripcion_larga_app = reader["version_aplicacion"].ToString();
+                app.descripcion_larga_app = reader["habilitado_aplicacion"].ToString();
+                app.descripcion_larga_app = reader["codigo_aplicacion"].ToString();
+                app.descripcion_larga_app = reader["paquete_instalacion"].ToString();
+                app.descripcion_larga_app = reader["url"].ToString();
+                app.descripcion_larga_app = reader["tipo_servidor"].ToString();
+                app.descripcion_larga_app = reader["imagen"].ToString();
+
+                listaApps.Add(app);
+            }
+
+            sqlConnection.Close();
+
+            return listaApps;
         }
 
         /**/

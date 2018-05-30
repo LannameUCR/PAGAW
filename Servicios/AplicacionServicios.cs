@@ -14,10 +14,15 @@ namespace Servicios
         AplicacionDatos appoDatos = new AplicacionDatos();
         #endregion
 
-        public List<Aplicacion> getApps(string tipoServidor)
+        public List<Aplicacion> getApps()
         {
-            return appoDatos.getApps(tipoServidor);
+            return appoDatos.getApps();
 
+        }
+
+        public List<Aplicacion> getAppsTipoServidor(string tipoServidor)
+        {
+            return appoDatos.getAppsTipoServidor(tipoServidor);
         }
 
         public List<Aplicacion> getAplicacionPorNombre(string nombreAplicacion)

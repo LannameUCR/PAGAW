@@ -37,7 +37,7 @@ namespace PAGAW.Administracion
         public void getTodasAplicaciones(string tipoServidor) 
         {
             //se trae la lista como en cualquier metodo
-            List<Aplicacion> listaAplicaciones = appServices.getApps(tipoServidor);
+            List<Aplicacion> listaAplicaciones = appServices.getAppsTipoServidor(tipoServidor);
             // en la variable se mete los datos necesario para que se genere el archivo json.
             var resultado = new
             {
