@@ -4,11 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://wenzhixin.net.cn/p/bootstrap-table/src/bootstrap-table.css" rel="stylesheet" type="text/css" />
+
 
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.bootstrap.min.css" rel="stylesheet" />
     <link href="http://protostrap.com/Assets/gv/css/gv.bootstrap-form.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/pagination.min.css" rel="stylesheet" />
     <script src='<%=Page.ResolveUrl("~/Scripts/jquery-1.9.1.js") %>'></script>
     <div class="container_filtros">
         <div class="row">
@@ -45,6 +47,11 @@
             <h3 class="panel-title">Aplicaciones</h3>
         </div>
         <div class="panel-body">
+            <label>
+                Mostrar 
+ <asp:DropDownList runat="server" name="repeter_length" id="repeter_length" aria-controls="tblUA" class="form-control input-sm" AutoPostBack="true" OnSelectedIndexChanged="repeter_length_SelectedIndexChanged">
+ </asp:DropDownList>
+                registros</label>
             <asp:Repeater ID="repiterApps" runat="server">
                 <HeaderTemplate>
                     <div class="container">
@@ -69,6 +76,7 @@
                                 <div>
                                     <p style="text-align: center; font-weight: bold;">Descripción</p>
                                 </div>
+
                                 <asp:Label ID="lsb_descripcion" runat="server" Style="text-align: justify;"><%# Eval("descripcion_corta_app") %></asp:Label>
                                 <p>
                                 </p>
@@ -82,6 +90,33 @@
             </div>
                 </FooterTemplate>
             </asp:Repeater>
+            <div id="externo" aria-label="Page navigation">
+                <div id="contentPag">
+
+                    <ul class="pagination">
+
+                        <li class="page-item">
+                            <asp:LinkButton ID="sFirst" class="page-link" runat="server" OnClick="lbFirst_Click">Primero</asp:LinkButton></li>
+                        <li class="page-item">
+                            <asp:LinkButton ID="lbPrevious" class="page-link" runat="server" OnClick="lbPrevious_Click">Anterior</asp:LinkButton></li>
+                        <asp:DataList ID="rptPaging" runat="server"
+                            OnItemCommand="rptPaging_ItemCommand"
+                            OnItemDataBound="rptPaging_ItemDataBound" RepeatDirection="Horizontal">
+                            <ItemTemplate>
+                                <li class="page-item">
+                                    <asp:LinkButton class="page-link" ID="lbPaging" runat="server"
+                                        CommandArgument='<%# Eval("PageIndex") %>' CommandName="newPage"
+                                        Text='<%# Eval("PageText") %> ' Width="20px"></asp:LinkButton></li>
+                            </ItemTemplate>
+                        </asp:DataList>
+                        <asp:LinkButton ID="lbNext" class="page-link" runat="server" OnClick="lbNext_Click">Siguiente</asp:LinkButton>
+                        <asp:LinkButton ID="lbLast" class="page-link" runat="server" OnClick="lbLast_Click">Ultimo</asp:LinkButton>
+                    </ul>
+                </div>
+            </div>
+            <div id="contentPag2">
+                <asp:Label ID="lblpage" runat="server" Text=""></asp:Label>
+            </div>
             <div style="border-color: #88b312;" class="modal fade" id="showDescripcion" tabindex="-1" role="dialog" aria-labelledby="labelshowDescripcion">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -105,8 +140,8 @@
                         var button = $(event.relatedTarget);
                         var subjdes = button.data('whatever');
                         var subjname = button.data('name');
+                        $('#subjdes').val(subjdes);
 
-                        $('#subjdes').val(subjdes);                    
                         $("h4.modal-title").text(subjname);
                     })
                 })

@@ -80,7 +80,7 @@ namespace PAGAW.Administracion
             // mismo nombre que el archivo que desea cargar .       
             if ((System.IO.File.Exists(pathToCheck)))
             {
-                return null; //El archivo existe
+                return pathToCheck; //El archivo existe
             }
             else
             {

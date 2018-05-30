@@ -174,6 +174,7 @@ namespace AccesoDatos
 
         public void ActualizarApplicacion(Aplicacion appInsertar)
         {
+            Aplicacion app = appInsertar;
             SqlConnection sqlConnection = conexion.conexionBI();
             SqlCommand sqlCommand = new SqlCommand("UPDATE Tb_Aplicaciones SET nombre_largo_aplicacion='" + appInsertar.nombre_largo_aplicacion + "'," +
                 "nombre_corto_aplicacion='" + appInsertar.nombre_corto_aplicacion + "',descripcion_larga_app='" + appInsertar.descripcion_larga_app + "'," +

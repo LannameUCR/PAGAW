@@ -23,7 +23,7 @@ namespace AccesoDatos
         }
 
         /*
-         * Lucrecia Zuñiga Sae
+         * Lucrecia Zuñiga Saenz
          29/04/201
      *
      *Metodo que lee el del archivo los datos del servidor y establece la coneccion 

@@ -44,6 +44,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bootstrap.Pagination, Version=1.0.8.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bootstrap.Pagination.1.0.9\lib\net451\Bootstrap.Pagination.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +81,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -103,6 +111,11 @@
     <Content Include="Administracion\InsertarAplicacion.aspx" />
     <Content Include="AdministradorUnidadAdministrativa.aspx" />
     <Content Include="ArchivoBaseDatos.txt" />
+    <Content Include="Ayuda.aspx" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\DataTables\datatables.min.css" />
     <Content Include="Content\DataTables\Images\details_close.png" />
     <Content Include="Content\DataTables\Images\details_open.png" />
@@ -111,6 +124,8 @@
     <Content Include="Content\DataTables\Images\sort_both.png" />
     <Content Include="Content\DataTables\Images\sort_desc.png" />
     <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
+    <Content Include="css\pagination.min.css" />
+    <Content Include="css\jquery.dataTables.min.css" />
     <Content Include="InsertarUnidadAdministrativa.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="ModificarUnidadAdministrativa.aspx" />
@@ -155,6 +170,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="AdministradorAplicaciones.aspx" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -205,6 +226,8 @@
     <Content Include="Scripts\table\responsive.bootstrap.min.css" />
     <Content Include="Scripts\table\responsive.bootstrap.min.js" />
     <Content Include="Scripts\transition.js" />
+    <Content Include="UserControls\UcPager.ascx" />
+    <Content Include="UserControls\UcPagination.ascx" />
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
   </ItemGroup>
@@ -255,6 +278,13 @@
     <Compile Include="AdministradorUnidadAdministrativa.aspx.designer.cs">
       <DependentUpon>AdministradorUnidadAdministrativa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InsertarUnidadAdministrativa.aspx.cs">
       <DependentUpon>InsertarUnidadAdministrativa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +328,16 @@
     <Compile Include="AdministradorAplicaciones.aspx.designer.cs">
       <DependentUpon>AdministradorAplicaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UcPager.ascx.cs">
+      <DependentUpon>UcPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcPager.ascx.designer.cs" />
+    <Compile Include="UserControls\UcPagination.ascx.cs">
+      <DependentUpon>UcPagination.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcPagination.ascx.designer.cs" />
     <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
