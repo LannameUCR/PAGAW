@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AplicacionDatos.cs" />
     <Compile Include="ConexionDatos.cs" />
+    <Compile Include="ParametrosDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnidadAdministrativaDatos.cs" />
   </ItemGroup>

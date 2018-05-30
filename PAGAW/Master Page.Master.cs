@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +11,8 @@ namespace PAGAW
 {
     public partial class Master_Page : System.Web.UI.MasterPage
     {
+        ParametrosServicios parametrosServicios = new ParametrosServicios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["nombreCompleto"] != null)
@@ -21,6 +25,16 @@ namespace PAGAW
                 Page.Master.FindControl("BtnSalir").Visible = true;
             }
             else {
+            }
+
+            if (Session["parametros"] == null)
+            {
+                parametrosServicios.obtenerParametros();
+                Session["parametros"] = true;
+                System.Diagnostics.Debug.Write(Parametros.getInstance().CantidadRegistros);
+                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaPruebas);
+                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaProduccion);
+                System.Diagnostics.Debug.Write(Parametros.getInstance().RutaArchivos);
             }
         }
         protected void BtnSalir_Click(object sender, EventArgs e)

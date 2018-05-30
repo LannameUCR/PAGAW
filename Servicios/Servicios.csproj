@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AplicacionServicios.cs" />
     <Compile Include="ConexionServicios.cs" />
+    <Compile Include="ParametrosServicios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnidadAdministrativaServicios.cs" />
   </ItemGroup>
