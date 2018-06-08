@@ -8,7 +8,7 @@
         </div>
         <div class="panel-body">
             <div class="divRedondo">
-                <div class="row" style="text-align: left; overflow-y: auto;">                     
+                <div class="row" style="text-align: left; overflow-y: auto;">                      
                     <asp:Label runat="server"  ID="dangerAlert" class="alert alert-danger" Visible="false" Width="100%">
                         <strong><asp:Label runat="server" ID="alertDangerMessage"></asp:Label></strong>
                     </asp:Label>    
@@ -20,6 +20,13 @@
                     <br/><br/>
                     <asp:Label runat="server" Text="Cantidad de registros a mostrar por tabla" style="font-weight: bold;"/>
                     <asp:TextBox ID="txtCantidadRegistros" min="1" runat="server" CssClass="form-control" TextMode="number" Width="30%" style="margin: 0 0;"/>   
+                    <asp:RequiredFieldValidator id="RequiredFieldValidator2" runat="server"
+                          ControlToValidate="txtCantidadRegistros"
+                          ErrorMessage="Este campo es requerido."
+                          Minimumvalue="1"
+                          Type="Integer"
+                          ForeColor="Red">
+                    </asp:RequiredFieldValidator>
                     <br/><br/>
                     <asp:Label runat="server" Text="Ruta de acceso pruebas" style="font-weight: bold;"/>
                     <asp:TextBox ID="txtRutaPruebas" runat="server" CssClass="form-control" Width="30%" style="margin: 0 0;" placeholder="Ingrese la dirección del servidor de pruebas"/>
