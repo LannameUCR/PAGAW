@@ -226,6 +226,33 @@ namespace PAGAW
 
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<Aplicacion> registros = new List<Aplicacion>();
+
+            var applicationList = (List<Aplicacion>)Session["listaapps"];
+
+            foreach (Aplicacion application in applicationList)
+            {
+                string applicationName = application.nombre_corto_aplicacion;
+
+                if (application.nombre_corto_aplicacion.Contains(txtApp_search.Text) || application.nombre_largo_aplicacion.Contains(txtApp_search.Text))
+                {
+                    registros.Add(new Aplicacion(application.id_aplicacion, application.nombre_largo_aplicacion, application.nombre_corto_aplicacion,
+                    application.descripcion_larga_app, application.descripcion_corta_app, application.version_aplicacion, application.habilitado_aplicacion,
+                    application.codigo_aplicacion, application.paquete_instalacion, application.url, application.tipo_servidor, application.unidad, application.imagen));
+                }
+            }
+
+            BindRepeaterSearch(registros);
+        }
+
+        private void BindRepeaterSearch(List<Aplicacion> registros)
+        {
+            this.repiterApps.DataSource = registros;
+            this.repiterApps.DataBind();
+        }
+
         protected void rptPaging_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             var lnkPage = (LinkButton)e.Item.FindControl("lbPaging");

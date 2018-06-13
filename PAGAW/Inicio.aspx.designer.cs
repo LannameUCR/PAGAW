@@ -22,6 +22,24 @@ namespace PAGAW {
         protected global::System.Web.UI.WebControls.DropDownList selec_unidad_administrativa;
         
         /// <summary>
+        /// txtApp_search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtApp_search;
+        
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSearch;
+        
+        /// <summary>
         /// repeter_length control.
         /// </summary>
         /// <remarks>
