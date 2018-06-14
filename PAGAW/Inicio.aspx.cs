@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Bootstrap.Pagination;
+using Entidades;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -29,14 +30,15 @@ namespace PAGAW
         {
             if (!this.IsPostBack)
             {
+                string tipoServidor = Request.QueryString("servidor");                
                 parametrosServicios.obtenerParametros();
                 _pageSize = Parametros.getInstance().CantidadRegistros;
-                Session["numeroPaginas"] = numeroPaginas.numero = 3;
-                Session["listaapps"] = appService.getApps();
-                Session["listaapps"] = appService.getApps();
+                Session["numeroPaginas"] = numeroPaginas.numero = _pageSize;
+                Session["listaapps"] = appService.getAppsTipoServidor(tipoServidor);
+                //Session["listaapps"] = appService.getApps();
 
-                this.BindDataIntoRepeater();
                 BindRepeater();
+                this.BindDataIntoRepeater();                
             }
         }
 
@@ -46,6 +48,7 @@ namespace PAGAW
             List<cantidadDeRegistros> registros = new List<cantidadDeRegistros>();
             int cuenta = 0;
             bool existeOption = false;
+            cantidadDeRegistros numeroParametro = new cantidadDeRegistros();
             foreach (Aplicacion item in listaApps)
             {
                 cuenta++;
@@ -54,6 +57,10 @@ namespace PAGAW
                     if (cuenta == _pageSize)
                     {
                         existeOption = true;
+                        numeroParametro.numero = _pageSize;
+                        numeroParametro.Numero_String = _pageSize.ToString();
+                        registros.Add(numeroParametro);
+                        continue;
                     }
                     cantidadDeRegistros numero = new cantidadDeRegistros();
                     numero.numero = cuenta;
@@ -62,13 +69,14 @@ namespace PAGAW
                 }
             }
             if (!existeOption)
-            {
-                cantidadDeRegistros numeroParametro = new cantidadDeRegistros();
+            {            
                 numeroParametro.numero = _pageSize;
                 numeroParametro.Numero_String = _pageSize.ToString();
                 registros.Add(numeroParametro);
-                repeter_length.SelectedIndex = 2;
             }
+
+            repeter_length.SelectedIndex = registros.IndexOf(numeroParametro);
+
             repeter_length.DataSource = registros;
             
             repeter_length.DataTextField = "Numero_String";

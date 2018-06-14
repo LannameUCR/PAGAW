@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using Bootstrap.Pagination;
+using Entidades;
 using Servicios;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,9 @@ namespace PAGAW.Administracion
             //Utilidades.escogerMenu(Page, rolesPermitidos);
             if (!Page.IsPostBack)
             {
-                string tipoServidor= "Pruebas";
+                string tipoServidor = Request.QueryString("servidor");                
                 hdTipoServidor.Value = tipoServidor;
-                Session["listaAplicaciones"] = null;
+                //Session["listaAplicaciones"] = null;
                 hdIdApp.Value = "";
                 List<Aplicacion> listaApps = appServicios.getAppsTipoServidor(tipoServidor);
                 Session["listaAplicaciones"] = listaApps;

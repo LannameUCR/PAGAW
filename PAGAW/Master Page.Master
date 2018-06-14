@@ -95,10 +95,10 @@
                             <div id="MenuAdministrador" Visible="false" runat="server">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx") %>'>Producción</a>
+                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx?servidor=Produccion") %>'>Producción</a>
                                     </li>
                                     <li>
-                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx") %>'>Pruebas</a>
+                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx?servidor=Pruebas") %>'>Pruebas</a>
                                     </li>
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/AdministrarBitacoraVersiones.aspx") %>'>Bitácora versiones</a>
@@ -109,7 +109,7 @@
                                         <ul class="dropdown-menu" role="menu">
                                             <li><a href='<%=Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=Produccion") %>'>Producción</a></li>
 
-                                            <li><a href='<%=Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=pruebas") %>'>Pruebas </a></li>
+                                            <li><a href='<%=Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=Pruebas") %>'>Pruebas </a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -123,10 +123,10 @@
                             <div id="menu_normal" Visible="true" runat="server">
                                 <ul class="nav navbar-nav">
                                     <li>
-                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx") %>'>Producción</a>
+                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx?servidor=Produccion") %>'>Producción</a>
                                     </li>
                                     <li>
-                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx") %>'>Pruebas</a>
+                                        <a href='<%=Page.ResolveUrl("~/Inicio.aspx?servidor=Pruebas") %>'>Pruebas</a>
                                     </li>  
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/Ayuda.aspx") %>'>Ayuda</a>

@@ -94,7 +94,7 @@ namespace PAGAW
 
                             Session["rol"] = rol;
                             Session["nombreCompleto"] = nombreCompleto;
-                            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+                            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=todos");
                             Response.Redirect(url);
                         }
                         else

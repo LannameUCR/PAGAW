@@ -67,7 +67,7 @@
                     <label for="Tipo_servidor" class="col-sm-2 col-form-label">Tipo servidor</label>
                     <div class="col-sm-10">
                         <asp:DropDownList ID="ddlTipoServidor" runat="server" CssClass="form-control" Width="30%">
-                            <asp:ListItem Text="Producción" Value="Producción" />
+                            <asp:ListItem Text="Producción" Value="Produccion" />
                             <asp:ListItem Text="Pruebas" Value="Pruebas" />
                         </asp:DropDownList>
                     </div>

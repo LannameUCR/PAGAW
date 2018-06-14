@@ -143,19 +143,16 @@
           lo que agiliza la forma en que se pintan los datos en pantalla.
           Se usa ajax y json para manejar los objetos, se accesa un web service y carga los datos de un
           archivo json creador en la programacion del webService*/
-        tipoServidor = $("#" + '<%= hdTipoServidor.ClientID %>').val();
-      
+        var tipoServidor = $("#" + '<%= hdTipoServidor.ClientID %>').val();        
         var table = $('#tblaplicaciones').DataTable({
             Processing: true,
             ServerSide: true,
-            "sAjaxSource": 'Administracion/aplicaciones.asmx/getApps',
+            "sAjaxSource": 'Administracion/aplicaciones.asmx/getTodasAplicaciones',
             //se utilizar cuando se necesita meter parametros en el metodo del WS.
-            "fnServerParams": function (aoData) {
-               
-
-                aoData.push({ "name": "hdIdApp", "value": idOculto });
+            "fnServerParams": function (aoData) {                
+                //aoData.push({ "name": "hdIdApp", "value": idOculto });                
+                aoData.push({ "name": "tipoServidor", "value": tipoServidor });                               
             },
-
             sServerMethod: 'post',
             "sSearch": true,
             /*Setear columnas con datos*/
@@ -185,13 +182,7 @@
 
             ],
             "rowCallback": function (row, data, index) {
-
-
-
-
             },
-
-
             /*preferencias del table*/
             orderCellsTop: true,
             "paging": true,
@@ -236,9 +227,6 @@
                     "sSortDescending": ": Activar para ordenar la columna de manera descendente"
                 }
             }
-
-
-
         });
         $("#tblaplicaciones  input").on('keyup change', function () {
             table
@@ -247,8 +235,6 @@
                 .draw();
         });
 
-
-
         function stopPropagation(evt) {
             if (evt.stopPropagation !== undefined) {
                 evt.stopPropagation();
@@ -256,7 +242,6 @@
                 evt.cancelBubble = true;
             }
         }
-
         /*
            Metodos accesados desde el data table , dan click a un boton hidden.              
          */
@@ -264,7 +249,6 @@
             document.getElementById("<%=hdIdApp.ClientID%>").value = id;
 
             document.getElementById("<%= btnActualizar.ClientID%>").click();
-
         }
 
         function Eliminar(id) {
@@ -276,11 +260,11 @@
         function seleccionar(idSeleccionado) {
 
         };
+
         function Habilitar_Deshabilitar(idSeleccionado) {
 
         };
     </script>
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ScriptContent" runat="server">
 </asp:Content>
