@@ -21,10 +21,13 @@ namespace PAGAW.Administracion
         List<ObjectoFileChooser> listaObjetoFileChooser = new List<ObjectoFileChooser>();
         UnidadAdministrativaServicios unidadServicios = new UnidadAdministrativaServicios();
         AplicacionServicios appService = new AplicacionServicios();
+        String tipoServidor = "";
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+
             if (!IsPostBack)
             {
 
@@ -37,7 +40,7 @@ namespace PAGAW.Administracion
 
                 txtVersion_aplicacion.Text = appActualizar.version_aplicacion;
                 txtUrlServidor.Text = appActualizar.url;
-
+                tipoServidor = appActualizar.tipo_servidor;
                 //
                 txtImagenAplicacion.Visible = false;
                 rpImagenAplicacion.Visible = true;
@@ -47,6 +50,12 @@ namespace PAGAW.Administracion
 
                 txtCodigoFuente.Visible = false;
                 rpCodigoFuente.Visible = true;
+
+                ddlTipoServidor.Items.FindByValue(appActualizar.tipo_servidor.ToString()).Selected = true;
+
+                
+              //  dpUnidadAdministrativa.Items.FindByValue(appActualizar.unidad.id_ua.ToString()).Selected = true;
+
 
                 //Imagen de aplicación
                 listaObjetoFileChooser.Add(new ObjectoFileChooser(appActualizar.id_aplicacion, appActualizar.imagen, appActualizar.imagen));
@@ -95,13 +104,15 @@ namespace PAGAW.Administracion
             string paquetePath = SaveFile(fuCodigoFuente, anno, pathPaquete);
 
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
-
+            UnidadAdministrativa unidad = new UnidadAdministrativa();
+            unidad.id_ua=Convert.ToInt32(dpUnidadAdministrativa.SelectedValue.ToString());
             Aplicacion aplicacion = new Aplicacion(Int32.Parse(txtIdApp.Text), txtNombreLargo.Text, txtNombreCorto.Text, txtDescripcion_larga.Text, txtDescripcion_corta.Text,
-            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor, "", imagePath);
+            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor, unidad, imagePath);
 
             appServicios.actualizarAplicacion(aplicacion);
 
-            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+      
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=" + tipoServidor);
             Response.Redirect(url);
         }
 
@@ -146,7 +157,9 @@ namespace PAGAW.Administracion
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
+            Aplicacion appServer = (Aplicacion)Session["appActualizar"];
+            tipoServidor = appServer.tipo_servidor;
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=" + tipoServidor);
             Response.Redirect(url);
         }
 

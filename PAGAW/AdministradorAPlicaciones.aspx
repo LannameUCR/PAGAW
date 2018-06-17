@@ -72,6 +72,7 @@
                                     <th>Nombre corto</th>
                                     <th>Descripción larga</th>
                                     <th>Descripción corta</th>
+                                    <th>Unidad Administrativa</th>
                                     <th>Versión</th>
                                     
                                     <th>Código Fuente</th>
@@ -104,6 +105,8 @@
                                         <th>Nombre corto</th>
                                         <th>Descripción larga</th>
                                         <th>Descripción corta</th>
+
+                                        <th>Unidad Administrativa</th>
                                         <th>Versión</th>                 
                                         <th>Código Fuente</th>
                                         <th>Paquete Instalación</th>
@@ -171,6 +174,7 @@
         { 'data': 'nombre_corto_aplicacion' },
         { 'data': 'descripcion_larga_app' },
         { 'data': 'descripcion_corta_app' },
+        { 'data': 'unidad.nombre_ua' },
         { 'data': 'version_aplicacion' },
        
         { 'data': 'codigo_aplicacion' },

@@ -19,25 +19,28 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <asp:Label runat="server" class="control-label control-label-left col-sm-3" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
+                                <asp:Label runat="server" class="control-label control-label-left col-sm-2" for="selc_unidad_administrativa">Unidad Administrativa</asp:Label>
                                 <div class="controls col-sm-9">
-                                    <asp:DropDownList ID="selec_unidad_administrativa" class="form-control" runat="server" OnSelectedIndexChanged="selec_unidad_administrativa_SelectedIndexChanged">
+                                    <asp:DropDownList ID="selec_unidad_administrativa"  AutoPostBack="true" class="form-control" runat="server" OnSelectedIndexChanged="selec_unidad_administrativa_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="control-label control-label-left col-sm-3" for="app_search">Aplicación</label>
+                                <label class="control-label control-label-left col-sm-2" for="app_search">Aplicación</label>
                                 <div class="controls col-sm-9">
                                     <div id="field2" class="input-group">
 
                                         <asp:TextBox ID="txtApp_search" class="form-control" data-role="lookup" placeholder="CBI" name="app_search" runat="server"></asp:TextBox>
+                                  
                                         <!--<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span> -->
-
-                                        <span class="input-group-addon"><asp:Button ID="btnSearch" class="btn btn-default" runat="server" Text="Button" OnClick="btnSearch_Click" /></span>
                                     </div>
+                                    
                                 </div>
+                                  <asp:LinkButton ID="LinkButton1" type="button" Style="" AutoPostBack="true" runat="server"  class="btn btn-default" OnClick="btnSearch_Click" >
+                                             <span class="glyphicon glyphicon-search"></span>
+                                      </asp:LinkButton>
                             </div>
                         </div>
                     </div>
@@ -65,7 +68,7 @@
                     <div class="col-sm-4 ">
                         <div class="panel panel-primary selector" style="border-color: #88b312;">
                             <div class="panel-heading" style="background-color: #88b312;">
-                                <asp:Label ID="ldl_unidad_app" runat="server"><%# Eval("unidad")%></asp:Label>
+                                <asp:Label ID="ldl_unidad_app" runat="server"><%# Eval("unidad.nombre_ua")%></asp:Label>
                             </div>
                             <div class="panel-body">
                                 <div class="hovereffect">

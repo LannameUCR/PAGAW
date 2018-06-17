@@ -46,6 +46,9 @@ namespace AccesoDatos
                 app.url = reader["url"].ToString();
                 app.tipo_servidor = reader["tipo_servidor"].ToString();
                 app.imagen = reader["imagen"].ToString();
+                UnidadAdministrativa ua = new UnidadAdministrativa();
+                ua.id_ua = Convert.ToInt32(reader["id_ua"].ToString());
+                app.unidad = ua;
 
                 listaApps.Add(app);
 
@@ -92,6 +95,10 @@ namespace AccesoDatos
                 app.url = reader["url"].ToString();
                 app.tipo_servidor = reader["tipo_servidor"].ToString();
                 app.imagen = reader["imagen"].ToString();
+                UnidadAdministrativa ua = new UnidadAdministrativa();
+                ua.id_ua = Convert.ToInt32(reader["id_ua"].ToString());
+                        
+                app.unidad = ua;
 
                 listaApps.Add(app);
 
@@ -137,6 +144,10 @@ namespace AccesoDatos
                 app.descripcion_larga_app = reader["url"].ToString();
                 app.descripcion_larga_app = reader["tipo_servidor"].ToString();
                 app.descripcion_larga_app = reader["imagen"].ToString();
+                UnidadAdministrativa ua = new UnidadAdministrativa();
+                ua.id_ua = Convert.ToInt32(reader["id_ua"].ToString());
+                app.unidad = ua;
+
 
                 listaApps.Add(app);
             }
@@ -153,7 +164,7 @@ namespace AccesoDatos
 
             String sql = "";
 
-            sql = "sp_obtener_aplicacion_por_unidad_administrativa";
+            sql = "sp_obtener_aplicaciones_con_unidad_administrativa";
 
             SqlCommand cmd = new SqlCommand(sql, sqlConnection);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -174,14 +185,17 @@ namespace AccesoDatos
                 app.nombre_largo_aplicacion = reader["nombre_largo_aplicacion"].ToString();
                 app.nombre_corto_aplicacion = reader["nombre_corto_aplicacion"].ToString();
                 app.descripcion_larga_app = reader["descripcion_larga_app"].ToString();
-                app.descripcion_larga_app = reader["descripcion_corta_app"].ToString();
-                app.descripcion_larga_app = reader["version_aplicacion"].ToString();
-                app.descripcion_larga_app = reader["habilitado_aplicacion"].ToString();
-                app.descripcion_larga_app = reader["codigo_aplicacion"].ToString();
-                app.descripcion_larga_app = reader["paquete_instalacion"].ToString();
-                app.descripcion_larga_app = reader["url"].ToString();
-                app.descripcion_larga_app = reader["tipo_servidor"].ToString();
-                app.descripcion_larga_app = reader["imagen"].ToString();
+                app.descripcion_corta_app = reader["descripcion_corta_app"].ToString();
+                app.version_aplicacion = reader["version_aplicacion"].ToString();
+                app.habilitado_aplicacion = reader["habilitado_aplicacion"].ToString();
+                app.codigo_aplicacion = reader["codigo_aplicacion"].ToString();
+                app.paquete_instalacion = reader["paquete_instalacion"].ToString();
+                app.url= reader["url"].ToString();
+                app.tipo_servidor = reader["tipo_servidor"].ToString();
+                app.imagen = reader["imagen"].ToString();
+                UnidadAdministrativa ua = new UnidadAdministrativa();
+                ua.id_ua = Convert.ToInt32(reader["id_ua"].ToString());
+                app.unidad = ua;
 
                 listaApps.Add(app);
             }
@@ -198,7 +212,7 @@ namespace AccesoDatos
                 "'" + appInsertar.nombre_corto_aplicacion + "','" + appInsertar.descripcion_larga_app + "','" + appInsertar.descripcion_corta_app + "'," +
                 "'" + appInsertar.version_aplicacion + "','" + appInsertar.habilitado_aplicacion + "','" + appInsertar.codigo_aplicacion + "'," +
                 "'" + appInsertar.paquete_instalacion + "','" + appInsertar.url + "','" + appInsertar.tipo_servidor + "'," +
-                "'" + appInsertar.imagen + "')", sqlConnection);
+                "'" + appInsertar.imagen + "','" + appInsertar.unidad.id_ua + "')", sqlConnection);
 
             sqlConnection.Open();
             sqlCommand.ExecuteReader();
@@ -226,7 +240,7 @@ namespace AccesoDatos
                 "descripcion_corta_app='" + appInsertar.descripcion_corta_app + "',version_aplicacion='" + appInsertar.version_aplicacion + "'," +
                 "habilitado_aplicacion='" + appInsertar.habilitado_aplicacion + "',codigo_aplicacion='" + appInsertar.codigo_aplicacion + "'," +
                 "paquete_instalacion='" + appInsertar.paquete_instalacion + "',url='" + appInsertar.url + "',tipo_servidor='" + appInsertar.tipo_servidor + "'," +
-                "imagen='" + appInsertar.imagen + "' WHERE id_aplicacion=" + appInsertar.id_aplicacion + "", sqlConnection);
+                "imagen='" + appInsertar.imagen + "',id_ua='" + appInsertar.unidad.id_ua + "' WHERE id_aplicacion=" + appInsertar.id_aplicacion + "", sqlConnection);
 
             sqlConnection.Open();
             sqlCommand.ExecuteReader();

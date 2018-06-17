@@ -44,9 +44,8 @@
                 <div class="form-group row">
                     <label for="Tipo_servidor" class="col-sm-2 col-form-label">Unidad Administrativa</label>
                     <div class="col-sm-10" style="width:30%;">
-                        <asp:DropDownList ID="dpUnidadAdministrativa" CssClass="form-control" runat="server" OnSelectedIndexChanged="dpUnidadAdministrativa_SelectedIndexChanged"></asp:DropDownList>
-                     
-                    </div
+                    <asp:DropDownList ID="dpUnidadAdministrativa" CssClass="form-control" runat="server" OnSelectedIndexChanged="dpUnidadAdministrativa_SelectedIndexChanged"></asp:DropDownList>
+              
                 </div>
 
 
@@ -198,10 +197,9 @@
                     <div class="col-sm-10">
                         <div class="custom-file" style="width:30%;">
                             <asp:FileUpload ID="fuImagen" class="custom-file-input" runat="server" />
-<<<<<<< HEAD
-=======
+
                             <label class="custom-file-label" for="customFile">Nueva imagen</label>
->>>>>>> origin/AgregadosDannhyIter2
+
                         </div>
                     </div>
                 </div>  
@@ -216,6 +214,8 @@
 
             </div>
         </div>
+    </div>
+
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentFormInsertarAplicacion" runat="server">

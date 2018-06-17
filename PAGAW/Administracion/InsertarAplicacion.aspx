@@ -33,6 +33,14 @@
                         <asp:TextBox ID="txtDescripcion_corta" class="form-control" runat="server" Width="30%" placeholder="Descripcion corta" cols="20" rows="3" ></asp:TextBox>
                     </div>
                 </div>
+                
+                <div class="form-group row">
+                    <label for="Tipo_servidor" class="col-sm-2 col-form-label">Unidad Administrativa</label>
+                    <div class="col-sm-10">
+                       <asp:DropDownList  style="width:30%;" ID="dpUnidadAdministrativa" CssClass="form-control" runat="server" OnSelectedIndexChanged="dpUnidadAdministrativa_SelectedIndexChanged"></asp:DropDownList>
+                </div>
+                        
+                </div>
                 <div class="form-group row">
                     <label for="Version_aplicacion" class="col-sm-2 col-form-label">Versión de la aplicación</label>
                     <div class="col-sm-10">
@@ -92,6 +100,8 @@
             </div>
         </div>
     </div>
+
+    
     <script type="text/javascript">
 
         $(document).ready(function () {

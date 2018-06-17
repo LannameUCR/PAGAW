@@ -19,12 +19,12 @@ namespace Entidades
         public String paquete_instalacion { get; set; }
         public String url { get; set; }
         public String tipo_servidor { get; set; }
-        public String unidad { get; set; }
+        public UnidadAdministrativa unidad { get; set; }
         public String imagen { get; set; }
 
         public Aplicacion(int id_aplicacion, String nombre_largo_aplicacion, String nombre_corto_aplicacion,
         String descripcion_larga_app, String descripcion_corta_app, String version_aplicacion, String habilitado_aplicacion,
-        String codigo_aplicacion, String paquete_instalacion, String url, String tipo_servidor, String unidad, String imagen)
+        String codigo_aplicacion, String paquete_instalacion, String url, String tipo_servidor, UnidadAdministrativa unidad, String imagen)
         {
             this.id_aplicacion = id_aplicacion;
             this.nombre_largo_aplicacion = nombre_largo_aplicacion;

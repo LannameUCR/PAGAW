@@ -20,15 +20,26 @@ namespace PAGAW.Administracion
 
         #region variables globales
         AplicacionServicios appServicios = new AplicacionServicios();
+        UnidadAdministrativaServicios unidadServicios = new UnidadAdministrativaServicios();
+
         #endregion
 
         //public static string path = "../Images/img/";
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.BindRepeater();
 
         }
+        private void BindRepeater()
+        {
+            List<UnidadAdministrativa> listaUnidades = unidadServicios.getUAs();
 
+            dpUnidadAdministrativa.DataSource = listaUnidades;
+            dpUnidadAdministrativa.DataTextField = "nombre_ua";
+            dpUnidadAdministrativa.DataValueField = "id_ua";
+            dpUnidadAdministrativa.DataBind();
+        }
         protected void BtnInsertar_Click(object sender, EventArgs e)
         {
             int anno = DateTime.Today.Year;
@@ -43,13 +54,14 @@ namespace PAGAW.Administracion
             string paquetePath = SaveFile(fuCodigoFuente, anno, pathPaquete);
            
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
-
+            UnidadAdministrativa unidad = new UnidadAdministrativa();
+            unidad.id_ua = Convert.ToInt32(dpUnidadAdministrativa.SelectedValue.ToString());
             Aplicacion aplicacion = new Aplicacion(0, txtNombreLargo.Text, txtNombreCorto.Text, txtDescripcion_larga.Text, txtDescripcion_corta.Text,
-            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor, "", imagePath);
+            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor,unidad, imagePath);
 
             appServicios.insertarAplicacion(aplicacion);
+            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=" + tipoServidor);
 
-            String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
             Response.Redirect(url);
         }
 
@@ -96,6 +108,11 @@ namespace PAGAW.Administracion
         {
             String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx");
             Response.Redirect(url);
+        }
+
+        protected void dpUnidadAdministrativa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

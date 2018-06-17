@@ -39,12 +39,24 @@ namespace PAGAW.Administracion
         {
             //se trae la lista como en cualquier metodo
             List<Aplicacion> listaAplicaciones = appServices.getAppsTipoServidor(tipoServidor);
+            List<Aplicacion> listaAplicacionesUAs = new List<Aplicacion>();
+            List<UnidadAdministrativa> unidades = UAservices.getUAs();
+
+            foreach (Aplicacion app in listaAplicaciones) {
+                foreach (UnidadAdministrativa ua in unidades)
+                {
+                    if (app.unidad.id_ua.Equals(ua.id_ua)) {
+                        app.unidad.nombre_ua = ua.nombre_ua;
+                        listaAplicacionesUAs.Add(app);
+                    }
+                }
+            }
             // en la variable se mete los datos necesario para que se genere el archivo json.
             var resultado = new
             {
-                iTotalRecords = listaAplicaciones.Count,
-                iTotalDisplayRecords = listaAplicaciones.Count,
-                aaData = listaAplicaciones
+                iTotalRecords = listaAplicacionesUAs.Count,
+                iTotalDisplayRecords = listaAplicacionesUAs.Count,
+                aaData = listaAplicacionesUAs
             };
             //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
             //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.
@@ -58,11 +70,25 @@ namespace PAGAW.Administracion
             //se trae la lista como en cualquier metodo
             List<Aplicacion> listaAplicaciones = appServices.getApps();
             // en la variable se mete los datos necesario para que se genere el archivo json.
+            List<Aplicacion> listaAplicacionesUAs = new List<Aplicacion>();
+            List<UnidadAdministrativa> unidades = UAservices.getUAs();
+
+            foreach (Aplicacion app in listaAplicaciones)
+            {
+                foreach (UnidadAdministrativa ua in unidades)
+                {
+                    if (app.unidad.id_ua.Equals(ua.id_ua))
+                    {
+                        app.unidad.nombre_ua = ua.nombre_ua;
+                        listaAplicacionesUAs.Add(app);
+                    }
+                }
+            }
             var resultado = new
             {
-                iTotalRecords = listaAplicaciones.Count,
-                iTotalDisplayRecords = listaAplicaciones.Count,
-                aaData = listaAplicaciones
+                iTotalRecords = listaAplicacionesUAs.Count,
+                iTotalDisplayRecords = listaAplicacionesUAs.Count,
+                aaData = listaAplicacionesUAs
             };
             //Se utiliza JavaScritp Serializer para poder crear el archivo json con los valores de la lista
             //el tamaño se setea al maximo ya que esto es para consultas que devuelvan miles de tuplas.

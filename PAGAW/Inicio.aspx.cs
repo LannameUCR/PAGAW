@@ -34,8 +34,23 @@ namespace PAGAW
                 parametrosServicios.obtenerParametros();
                 _pageSize = Parametros.getInstance().CantidadRegistros;
                 Session["numeroPaginas"] = numeroPaginas.numero = _pageSize;
-                Session["listaapps"] = appService.getAppsTipoServidor(tipoServidor);
+                List<Aplicacion> listaAplicaciones = appService.getAppsTipoServidor(tipoServidor);
+                List<Aplicacion> listaAplicacionesUAs = new List<Aplicacion>();
+                List<UnidadAdministrativa> unidades = unidadServicios.getUAs();
+
+                foreach (Aplicacion app in listaAplicaciones)
+                {
+                    foreach (UnidadAdministrativa ua in unidades)
+                    {
+                        if (app.unidad.id_ua.Equals(ua.id_ua))
+                        {
+                            app.unidad.nombre_ua = ua.nombre_ua;
+                            listaAplicacionesUAs.Add(app);
+                        }
+                    }
+                }
                 //Session["listaapps"] = appService.getApps();
+                Session["listaapps"] = listaAplicacionesUAs;
 
                 BindRepeater();
                 this.BindDataIntoRepeater();                
@@ -99,12 +114,28 @@ namespace PAGAW
 
 
             listaApps = appService.getAplicacionPorUnidadAdministrativa(unidad.id_ua);
-            this.repiterApps.DataSource = listaApps;
-            this.repiterApps.DataBind();
+            List<Aplicacion> listaAplicacionesUAs = new List<Aplicacion>();
+            List<UnidadAdministrativa> unidades = unidadServicios.getUAs();
+
+            foreach (Aplicacion app in listaApps)
+            {
+                foreach (UnidadAdministrativa ua in unidades)
+                {
+                    if (app.unidad.id_ua.Equals(ua.id_ua))
+                    {
+                        app.unidad.nombre_ua = ua.nombre_ua;
+                        listaAplicacionesUAs.Add(app);
+                    }
+                }
+            }
+            Session["listaapps"] = listaAplicacionesUAs;
+            CurrentPage = 0;
+          this.BindDataIntoRepeater();
+
         }
 
 
-             
+
 
         private int CurrentPage
         {
