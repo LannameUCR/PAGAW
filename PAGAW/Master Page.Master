@@ -65,18 +65,13 @@
                                     </div>
                                     <a href="http://www.lanamme.ucr.ac.cr/">
                                         <img src='<%=Page.ResolveUrl("~/Imagenes/logoLanamme.png") %>' /></a>
-
-
                                 </div>
                             </div>
                             <!-- /.navbar-collapse -->
                         </div>
                         <!-- /.container-fluid -->
                     </nav>
-
-
                 </div>
-
             </div>
             <div id="menu" class="menu" runat="server">
                 <nav class="navbar navbar-default" role="navigation">
@@ -141,19 +136,27 @@
                             <%------------------------------FIN DE LOS MENUS ---------------------------%>
 
                             <ul class="nav navbar-nav navbar-right">
+                                <li style="vertical-align: middle; float:left;">
+                                    <div id="google_translate_element" style="padding-top: 1em;"></div>
+                                        <script type="text/javascript">
+                                            function googleTranslateElementInit() {
+                                                new google.translate.TranslateElement({pageLanguage: 'es', includedLanguages: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true}, 'google_translate_element');
+                                            }
+                                        </script>
+                                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                                </li>
+
                                 <li>
                                     <a id="username" visible="false" class="hidden-sm hidden-xs" runat="server">Bienvenid@</a>
-
                                 </li>
 
                                 <li>
                                     <asp:LinkButton ID="sessionLink" OnClick ="btnLogin_Click" class="session" runat="server" href='/Login.aspx' >Iniciar Sesión</asp:LinkButton>
                                     <asp:Button ID="BtnSalir" visible="false" runat="server" CssClass="btn btn-primary" Text="Salir" OnClick="BtnSalir_Click" CausesValidation="False" UseSubmitBehavior="False" />
                                 </li>
-                            </ul>
+                            </ul>                            
                         </div>
                     </div>
-
                     <!-- /.container-fluid -->
                 </nav>
             </div>

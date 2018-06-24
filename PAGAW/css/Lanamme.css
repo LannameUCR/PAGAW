@@ -257,3 +257,10 @@ transform:translatey(0);
 -webkit-transition-delay:.2s;
 transition-delay:.2s;
 }
+
+#lblLen:hover {
+    cursor: text;
+    text-decoration: none;
+    color: none !important;
+    text-decoration-color: none !important;
+}
