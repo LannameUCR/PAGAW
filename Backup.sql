@@ -8,3 +8,12 @@ END
 
 exec backupdb;
 drop procedure backupdb;
+
+
+
+CREATE PROCEDURE restoredb
+AS
+BEGIN 
+	RESTORE DATABASE PAGAW_DB
+	FROM DISK = 'C:\FullBackupPAGAW\PAGAW.bak'
+END

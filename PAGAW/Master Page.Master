@@ -18,6 +18,9 @@
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+
+    <link href="css/Style.css" rel="stylesheet" />
+
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
@@ -114,11 +117,7 @@
                                         <a href='<%=Page.ResolveUrl("~/Administracion/GestionarParametros.aspx") %>'>Gestionar Parámetros</a>
                                     </li>
                                     <li class="dropdown" aria-expanded="true">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Respaldar y restablecer<span class="caret"></span></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a id="BtnBackupp" runat="server" onServerClick="BtnBackup_Click">Respaldar sistema</a></li>
-                                            <li><a id="Button2" runat="server" onServerClick="BtnRestore_Click">Restaurar sistema</a></li>
-                                        </ul>
+                                        <a id="BtnBackupRestore" runat="server" onServerClick="BtnBackupRestore_Click">Respaldar / Restaurar sistema</a>
                                     </li>                                          
                                 </ul>
                             </div>

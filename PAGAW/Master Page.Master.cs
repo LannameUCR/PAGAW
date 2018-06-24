@@ -12,7 +12,6 @@ namespace PAGAW
     public partial class Master_Page : System.Web.UI.MasterPage
     {
         ParametrosServicios parametrosServicios = new ParametrosServicios();
-        BackupRestoreServicios backupServicios = new BackupRestoreServicios();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,14 +48,10 @@ namespace PAGAW
             Response.Redirect(url);
         }
 
-        protected void BtnBackup_Click(object sender, EventArgs e)
+        protected void BtnBackupRestore_Click(object sender, EventArgs e)
         {
-            backupServicios.generarBackup();
-        }
-
-        protected void BtnRestore_Click(object sender, EventArgs e)
-        {
-            backupServicios.ejecutarRestore();
+            String url = Page.ResolveUrl("~/Administracion/BackupRestore.aspx");
+            Response.Redirect(url);
         }
     }
 }

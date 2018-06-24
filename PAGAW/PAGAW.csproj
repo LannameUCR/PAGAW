@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="Administracion\ActualizarAplicacion.aspx" />
     <Content Include="Administracion\aplicaciones.asmx" />
+    <Content Include="Administracion\BackupRestore.aspx" />
     <Content Include="Administracion\EliminarAplicacion.aspx" />
     <Content Include="Administracion\EliminarUnidadAdministrativa.aspx" />
     <Content Include="Administracion\GestionarParametros.aspx" />
@@ -129,6 +130,7 @@
     <Content Include="Content\DataTables\Images\sort_desc_disabled.png" />
     <Content Include="css\pagination.min.css" />
     <Content Include="css\jquery.dataTables.min.css" />
+    <Content Include="css\Style.css" />
     <Content Include="Imagenes\item1.png" />
     <Content Include="InsertarUnidadAdministrativa.aspx" />
     <Content Include="Login.aspx" />
@@ -246,6 +248,13 @@
     <Compile Include="Administracion\aplicaciones.asmx.cs">
       <DependentUpon>aplicaciones.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Administracion\BackupRestore.aspx.cs">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administracion\BackupRestore.aspx.designer.cs">
+      <DependentUpon>BackupRestore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administracion\EliminarAplicacion.aspx.cs">
       <DependentUpon>EliminarAplicacion.aspx</DependentUpon>

@@ -10,33 +10,51 @@
 namespace PAGAW.Administracion {
     
     
-    public partial class InsertarDatoBitacoraVersiones {
+    public partial class BackupRestore {
         
         /// <summary>
-        /// txtNombreUsuario control.
+        /// lblBackup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.Label lblBackup;
         
         /// <summary>
-        /// txtDescripcion control.
+        /// lblRestore control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
+        protected global::System.Web.UI.WebControls.Label lblRestore;
         
         /// <summary>
-        /// btnGuardar control.
+        /// lblMenssage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Label lblMenssage;
+        
+        /// <summary>
+        /// btnBackup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBackup;
+        
+        /// <summary>
+        /// btnRestore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRestore;
     }
 }
