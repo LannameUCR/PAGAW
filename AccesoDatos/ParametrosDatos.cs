@@ -30,7 +30,9 @@ namespace AccesoDatos
                 Parametros.getInstance().CantidadRegistros = Convert.ToInt32(reader["cantidad_registros"]);
                 Parametros.getInstance().RutaPruebas = reader["ruta_absoluta_Spruebas"].ToString();
                 Parametros.getInstance().RutaProduccion = reader["ruta_absoluta_Sproduccion"].ToString();
-                Parametros.getInstance().RutaArchivos = reader["ruta_absoluta_Sarchivos"].ToString();                
+                Parametros.getInstance().RutaArchivos = reader["ruta_absoluta_Sarchivos"].ToString();
+                Parametros.getInstance().CuentaCorreo = reader["cuenta_correo"].ToString();
+                Parametros.getInstance().Contrasena = reader["contrasena"].ToString(); 
             }
             sqlConnection.Close();            
         }
@@ -58,6 +60,8 @@ namespace AccesoDatos
                 Parametros.getInstance().RutaPruebas = reader["ruta_absoluta_Spruebas"].ToString();
                 Parametros.getInstance().RutaProduccion = reader["ruta_absoluta_Sproduccion"].ToString();
                 Parametros.getInstance().RutaArchivos = reader["ruta_absoluta_Sarchivos"].ToString();
+                Parametros.getInstance().CuentaCorreo = reader["cuenta_correo"].ToString();
+                Parametros.getInstance().Contrasena = reader["contrasena"].ToString();
             }
             sqlConnection.Close();
             return true;
@@ -74,6 +78,8 @@ namespace AccesoDatos
             cmd.Parameters.Add("rutaPruebas ", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaPruebas;
             cmd.Parameters.Add("rutaProduccion", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaProduccion;
             cmd.Parameters.Add("rutaArchivos", SqlDbType.NVarChar).Value = Parametros.getInstance().RutaArchivos;
+            cmd.Parameters.Add("cuentaCorreo", SqlDbType.NVarChar).Value = Parametros.getInstance().CuentaCorreo;
+            cmd.Parameters.Add("contrasena", SqlDbType.NVarChar).Value = Parametros.getInstance().Contrasena;
 
             sqlConnection.Open();
 

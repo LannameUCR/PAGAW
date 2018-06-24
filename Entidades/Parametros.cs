@@ -13,6 +13,8 @@ namespace Entidades
         private string rutaPruebas;
         private string rutaProduccion;
         private string rutaArchivos;
+        private string cuentaCorreo;
+        private string contrasena;
 
         public int CantidadRegistros
         {
@@ -63,6 +65,32 @@ namespace Entidades
             set
             {
                 rutaArchivos = value;
+            }
+        }
+
+        public string CuentaCorreo
+        {
+            get
+            {
+                return cuentaCorreo;
+            }
+
+            set
+            {
+                cuentaCorreo = value;
+            }
+        }
+
+        public string Contrasena
+        {
+            get
+            {
+                return contrasena;
+            }
+
+            set
+            {
+                contrasena = value;
             }
         }
 

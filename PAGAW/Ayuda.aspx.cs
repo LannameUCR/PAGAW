@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,13 +11,16 @@ namespace PAGAW
 {
     public partial class Ayuda : System.Web.UI.Page
     {
+        ParametrosServicios parametrosServicios = new ParametrosServicios();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          //int[] rolesPermitidos = { 2 };
+            //int[] rolesPermitidos = { 2 };
             //Utilidades.escogerMenu(Page, rolesPermitidos);
             //username.InnerText = "Bienvenid@ " + Session["nombreCompleto"].ToString();
             //txtUsuario.Text = Session["nombreCompleto"].ToString();
-
+            parametrosServicios.obtenerParametros();
+            
         }
 
         protected void btnEnviarCorreo_Click(object sender, EventArgs e)
@@ -33,7 +38,7 @@ namespace PAGAW
 
             //Direccion de correo electronico a la que queremos enviar el mensaje
             //mmsg.To.Add("josevalverde93@gmail.com");
-            mmsg.To.Add("smtplannamme@gmail.com");
+            mmsg.To.Add(Parametros.getInstance().CuentaCorreo);
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
             //Asunto
@@ -41,7 +46,7 @@ namespace PAGAW
             mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
 
             //Direccion de correo electronico que queremos que reciba una copia del mensaje
-            mmsg.Bcc.Add("smtplannamme@gmail.com"); //Opcional
+            mmsg.Bcc.Add(Parametros.getInstance().CuentaCorreo); //Opcional
 
             //Cuerpo del Mensaje
 
@@ -50,8 +55,7 @@ namespace PAGAW
             mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
 
             //Correo electronico desde la que enviamos el mensaje
-            mmsg.From = new System.Net.Mail.MailAddress("smtplannamme@gmail.com");
-
+            mmsg.From = new System.Net.Mail.MailAddress(Parametros.getInstance().CuentaCorreo);
 
             /*-------------------------CLIENTE DE CORREO----------------------*/
 
@@ -60,15 +64,13 @@ namespace PAGAW
 
             //Hay que crear las credenciales del correo emisor
             cliente.Credentials =
-                new System.Net.NetworkCredential("smtplannamme@gmail.com", "lanammeUCR");
-
+                new System.Net.NetworkCredential(Parametros.getInstance().CuentaCorreo, Parametros.getInstance().Contrasena);
 
             cliente.Port = 587;
             cliente.EnableSsl = true;
 
 
             cliente.Host = "smtp.gmail.com"; //Para Gmail "smtp.gmail.com";
-
 
             /*-------------------------ENVIO DE CORREO----------------------*/
 

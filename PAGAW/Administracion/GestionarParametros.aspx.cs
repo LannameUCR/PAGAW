@@ -21,6 +21,8 @@ namespace PAGAW.Administracion
                 txtRutaPruebas.Text = Parametros.getInstance().RutaPruebas;
                 txtRutaProduccion.Text = Parametros.getInstance().RutaProduccion;
                 txtRutaArchivos.Text = Parametros.getInstance().RutaArchivos;
+                txtCuentaCorreo.Text = Parametros.getInstance().CuentaCorreo;
+                txtContrasena.Text = Parametros.getInstance().Contrasena;
             }
         }
 
@@ -30,6 +32,8 @@ namespace PAGAW.Administracion
             Parametros.getInstance().RutaPruebas = txtRutaPruebas.Text;
             Parametros.getInstance().RutaProduccion = txtRutaProduccion.Text;
             Parametros.getInstance().RutaArchivos = txtRutaArchivos.Text;
+            Parametros.getInstance().CuentaCorreo= txtCuentaCorreo.Text;
+            Parametros.getInstance().Contrasena = txtContrasena.Text;
 
             bool respuestaServicio = parametrosServicios.modificarParametros();
             if (respuestaServicio)

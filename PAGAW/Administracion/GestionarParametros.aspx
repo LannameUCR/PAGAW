@@ -37,6 +37,12 @@
                     <asp:Label runat="server" Text="Ruta de acceso archivos" style="font-weight: bold;"/>
                     <asp:TextBox ID="txtRutaArchivos" runat="server" CssClass="form-control" style="margin: 0 0;" Width="30%" placeholder="Ingrese la dirección del servidor de producción"/>
                     <br/><br/>
+                    <asp:Label runat="server" Text="Cuenta de correo" style="font-weight: bold;"/>
+                    <asp:TextBox ID="txtCuentaCorreo" runat="server" CssClass="form-control" TypeMode="Email" style="margin: 0 0;" Width="30%" placeholder="Ingrese la dirección de correo electrónico"/>
+                    <br/><br/>
+                    <asp:Label runat="server" Text="Contraseña del correo" style="font-weight: bold;"/>
+                    <asp:TextBox ID="txtContrasena" runat="server" CssClass="form-control" style="margin: 0 0;" Width="30%" placeholder="Ingrese la contraseña de la cuenta"/>
+                    <br/><br/>
                     <asp:Button runat="server" Text="Modificar parámetros" CssClass="btn btn-primary" OnClick="modificarParametros_Click"/>
                     <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-default" OnClick="cancelarOperacion_Click" style="color: white; background-color:red;"/>
                     <br/><br/>
