@@ -28,9 +28,9 @@ namespace AccesoDatos
             /*Path de los archivos que requieren respaldo*/
             path = path.Remove(0, 6);
             path = path.Remove(path.Length - 9);
-            string pathImage = path + "Images";
-            string pathZIP = path + "ZIP";
-            string pathPaquete = path + "PAQUETE";
+            string pathImage = path + "PAGAW\\Images";
+            string pathZIP = path + "PAGAW\\ZIP";
+            string pathPaquete = path + "PAGAW\\PAQUETE";
             string pathFile = @"c:\FullBackupPAGAW";
 
             /*Path del directorio donde se guardan los backups*/

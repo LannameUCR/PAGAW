@@ -18,12 +18,6 @@
                     </div>  
                 </div>
                 <div class="form-group row">
-                    <label runat="server" class="col-sm-2 col-form-label">Fecha</label>
-                    <div class="col-sm-10" style="width:30%;">
-                        <asp:calendar ID="fecha" runat="server"></asp:calendar>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="Descripcion" class="col-sm-2 col-form-label">Descripcion de la operación</label>
                     <div class="col-sm-10" style="width:30%;">
                         <asp:TextBox ID="txtDescripcion" class="form-control" runat="server" placeholder="Descripcion" cols="20" rows="3" ></asp:TextBox>
