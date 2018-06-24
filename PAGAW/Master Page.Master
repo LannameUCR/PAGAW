@@ -118,6 +118,8 @@
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/Administracion/GestionarParametros.aspx") %>'>Gestionar Parámetros</a>
                                     </li>
+
+
                                 </ul>
                             </div>
                             <div id="menu_normal" Visible="true" runat="server">
@@ -130,6 +132,9 @@
                                     </li>  
                                     <li>
                                         <a href='<%=Page.ResolveUrl("~/Ayuda.aspx") %>'>Ayuda</a>
+                                    </li>
+                                    <li>
+                                        <asp:Button ID="BtnBackup" class="btn btn-default" runat="server" Text="Backup" OnClick="BtnBackup_Click" />
                                     </li>
                                 </ul>
                             </div>

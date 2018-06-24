@@ -12,6 +12,7 @@ namespace PAGAW
     public partial class Master_Page : System.Web.UI.MasterPage
     {
         ParametrosServicios parametrosServicios = new ParametrosServicios();
+        BackupServicios backupServicios = new BackupServicios();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,6 +47,11 @@ namespace PAGAW
             
             String url = Page.ResolveUrl("~/Login.aspx");
             Response.Redirect(url);
+        }
+
+        protected void BtnBackup_Click(object sender, EventArgs e)
+        {
+            backupServicios.generarBackup();
         }
     }
 }
