@@ -1,0 +1,63 @@
+Arrancar el servidor de laravel en el proyecto: php artisan serve
+
+Crear nuevo controlador: php artisan make:controller Nombre_Controlador
+
+Limpiar vistas en cache: php artisan view:clear
+
+Crear una base de datos: mysql -uroot 
+
+Ejecutar las migraciones: php artisan migrate
+
+Eliminar todas las migraciones creadas en la bd, ejecuta el reset en orden inverso al migrate (Elimina todos los datos): php artisan migrate:reset
+
+Actualizar las migraciones (Ejecuta primero un reset en orden inverso al migrate y luego un migrate) (Elimina todos los datos): php artisan migrate:refresh
+
+Crear nueva migración: php artisan make:migration add_profession_to_users --create=NombreTable //Genera la estructura, código boilerplate
+
+Eliminar el ultimo lote de migración para realizar un nuevo cambio en una tabla sin afectar las otras que pertenecen a otra migración: php artisan migrate:rollback
+
+Nota: al usar el prefijo create y el sufijo table agregara código extra por defecto
+
+Agregar código por defecto en una migración sin usar create ni table: php artisan make:migration new_professions_table --create=professions
+
+El método "fresh" funciona igual que el refresh solo que no requiere el método "down"
+
+Crear un seeder: php artisan make:seeder NombreSeeder
+Ejecutar seeder: php artisan db:seed
+Crear un modelo: php artisan make:model Models/ProfesionCategory /*Genera automáticamente la carpeta Models*/
+
+
+Los factory son muy importantes por que permite asginar "n" cantidad de datos aleatorios en una tabla de la bd, 
+especificando el o los atributos. El siguiente comando crea el factory, pero lo liga con un modelo.
+**************************************************************
+php artisan make:factory ProfessionFactory --model=Profession
+**************************************************************
+
+Comando de ayuda: php artisan help make:model 
+
+Crear un modelo, una migración y un factory: php artisan make:model Skill -mf
+
+
+**************************************************************
+Se debe cambiar el proyecto a producción en el archivo .env
+APP_ENV=production
+**************************************************************
+
+**************************************************************
+El método fresh no requiere de la función down
+**************************************************************
+
+**************************************************************
+"seeders" son usados insertar datos en la bd desde Laravel
+************************************************************** 
+
+Crear bd: CREATE DATABASE curso_styde;
+Configurar bd: archivo .env
+
+/*Puede darse el caso que por el orden las migraciones se intenta hacer llave foranea con una tabla que no esta hecha, por ende
+se debe cambiar la fecha de la migración que falla, a una fecha más actual que la otra migración, y luego usar el comando:
+
+php artisan migrate:fresh 
+
+por que las migraciones quedan en un estado incosistente. ****** Este comando elimina todas las 
+tablas de la bd y luego las crea de nuevo junto con las migraciones***** */

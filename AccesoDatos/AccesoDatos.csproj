@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AplicacionDatos.cs" />
-    <Compile Include="BackupDatos.cs" />
+    <Compile Include="BackupRestoreDatos.cs" />
     <Compile Include="BitacoraDeVersionesDatos.cs" />
     <Compile Include="ConexionDatos.cs" />
     <Compile Include="ParametrosDatos.cs" />

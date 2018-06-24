@@ -45,19 +45,23 @@ namespace PAGAW.Administracion
             int anno = DateTime.Today.Year;
             path = path.Remove(0, 6);
             path = path.Remove(path.Length - 9);
-            string pathImage = path+"Images\\img";
-            string pathZIP = path + "ZIP\\zip";
-            string pathPaquete = path + "PAQUETE\\codigo";
+            string pathImage = path+ "PAGAW\\Images\\img";
+            string pathZIP = path + "PAGAW\\ZIP\\zip";
+            string pathPaquete = path + "PAGAW\\PAQUETE\\codigo";
             string imagePath = SaveFile(fuImagen, anno, pathImage);
 
             string zipPath = SaveFile(fupCodigoZip, anno, pathZIP);
             string paquetePath = SaveFile(fuCodigoFuente, anno, pathPaquete);
            
             var tipoServidor = ddlTipoServidor.SelectedItem.Text;
+
+            string [] array = imagePath.Split('\\');
+
+
             UnidadAdministrativa unidad = new UnidadAdministrativa();
             unidad.id_ua = Convert.ToInt32(dpUnidadAdministrativa.SelectedValue.ToString());
             Aplicacion aplicacion = new Aplicacion(0, txtNombreLargo.Text, txtNombreCorto.Text, txtDescripcion_larga.Text, txtDescripcion_corta.Text,
-            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor,unidad, imagePath);
+            txtVersion_aplicacion.Text, "1", zipPath, paquetePath, txtUrlServidor.Text, tipoServidor,unidad, "~\\Images\\img" + anno +"\\"+ array[10]);
 
             appServicios.insertarAplicacion(aplicacion);
             String url = Page.ResolveUrl("~/AdministradorAplicaciones.aspx?servidor=" + tipoServidor);

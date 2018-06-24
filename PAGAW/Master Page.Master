@@ -136,6 +136,9 @@
                                     <li>
                                         <asp:Button ID="BtnBackup" class="btn btn-default" runat="server" Text="Backup" OnClick="BtnBackup_Click" />
                                     </li>
+                                    <li>
+                                        <asp:Button ID="Button2" class="btn btn-default" runat="server" Text="Restore" OnClick="BtnRestore_Click"/>
+                                    </li>
                                 </ul>
                             </div>
                             <%------------------------------FIN DE LOS MENUS ---------------------------%>

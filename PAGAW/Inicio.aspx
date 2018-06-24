@@ -72,7 +72,9 @@
                             </div>
                             <div class="panel-body">
                                 <div class="hovereffect">
-                                    <asp:Image runat="server" ID="Image_app" ImageUrl="/Imagenes/item1.png" class="img-responsive" Style="width: 100%" alt="Image" />
+
+
+                                    <asp:Image runat="server" ID="Image_app" ImageUrl='<%# Eval("imagen") %>' class="img-responsive" Style="width: 100%" alt="Image" />
                                     <div class="overlay">
                                         <a class="info" href='http://<%# Eval("url")%>'>Ejecutar</a>
                                     </div>
