@@ -3,32 +3,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+   <script src='<%=Page.ResolveUrl("~/Scripts/datatables.min.js") %>'></script>
+<script src='<%=Page.ResolveUrl("~/Scripts/Dialogo.js") %>'></script>
+     <script src='<%=Page.ResolveUrl("~/Scripts/bootstrap-dialog.js") %>'></script>
+       <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
+     <link href="css/bootstrap.css" rel="stylesheet" />
+    <%-- Estilos con formato UCR  --%>
+    <link href="css/Lanamme.css" rel="stylesheet" />  
+
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cleartype" content="on" />
-    <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
 
+
+        <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
+  
 
     <link href="css/Lanamme.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="Scripts/Table//responsive.bootstrap.min.css" rel="stylesheet" />
-
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/bootstrap-dialog.css" rel="stylesheet" />
-
+     <!-- Font Awesome -->
+     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
-
-
-    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />
-    <link href="Scripts/Table/datatables.min.css" rel="stylesheet" />
-
-    <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
-
+    <link href="css/bootstrap.css" rel="stylesheet" />
+   <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+ 
+      <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
+    <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+         <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
+    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
+    <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
+        <script src='<%=Page.ResolveUrl("~/Scripts/Table/jquery.dataTables.min.js") %>'></script>
+        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
+    
+        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.responsive.min.js") %>'></script>
+        <script src='<%=Page.ResolveUrl("~/Scripts/Table/responsive.bootstrap.min.js") %>'></script>
 
 
     <%--
@@ -97,8 +106,10 @@
 
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
+                             <thead>
+                                    <tr>
                             <tfoot>
-                                <thead>
+                              
                                     <tr id="filterrow">
                                         <td></td>                              
                                         <th>Nombre largo</th>
@@ -114,8 +125,11 @@
                                         <th >Servidor</th>
                                         <th >Imagen Url</th> 
                                     </tr>
-                                </thead>
+                           
                             </tfoot>
+                                       
+-                        </tr>
+-                    </thead>
                             <tr>
                                 <td>
                                     <asp:Button ID="btnInsertar" runat="server" type="button" class="btn btn-primary" value=""  Text="Insertar" OnClick="btnInsertar_Click"/>

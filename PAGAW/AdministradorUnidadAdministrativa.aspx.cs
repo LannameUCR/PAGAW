@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace PAGAW
 {
     public partial class AdministradorUnidadAdministrativa : System.Web.UI.Page
@@ -25,6 +26,25 @@ namespace PAGAW
                 Session["listaUnidades"] = listaUas;
 
             }
+        }
+        protected void btnHA_DEs_Click(object sender, EventArgs e)
+        {
+            int idUa = Convert.ToInt32(hdIdUA.Value);
+            List<UnidadAdministrativa> listaUas = (List<UnidadAdministrativa>)Session["listaUnidades"];
+            UnidadAdministrativa uaHD = new UnidadAdministrativa();
+            foreach (UnidadAdministrativa uaTemporal in listaUas)
+            {
+                if (uaTemporal.id_ua == idUa)
+                {
+
+                    uaHD = uaTemporal;
+
+
+                    break;
+                }
+            }
+
+
         }
         protected void btnEliminar_Click(object sender, EventArgs e)
         {

@@ -4,31 +4,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script src='<%=Page.ResolveUrl("~/Scripts/datatables.min.js") %>'></script>
+<script src='<%=Page.ResolveUrl("~/Scripts/Dialogo.js") %>'></script>
+ 
+       <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
+     <link href="css/bootstrap.css" rel="stylesheet" />
+    <%-- Estilos con formato UCR  --%>
+    <link href="css/Lanamme.css" rel="stylesheet" />  
+
     <meta name="HandheldFriendly" content="True" />
     <meta name="MobileOptimized" content="320" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="cleartype" content="on" />
-    <link href="Content/DataTables/datatables.min.css" rel="stylesheet" />
 
+  
 
     <link href="css/Lanamme.css" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link href="Scripts/Table//responsive.bootstrap.min.css" rel="stylesheet" />
-
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" />
-    <link href="css/bootstrap-dialog.css" rel="stylesheet" />
-
+     <!-- Font Awesome -->
+     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
     <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
     <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+   <link href="css/bootstrap-dialog.css" rel="stylesheet" />
+ 
+      <!--Dialogos de Mensaje ref:https://nakupanda.github.io/bootstrap3-dialog/#available-options -->
+    <link href="css/bootstrap-dialog.css" rel="stylesheet" />
 
-
-    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />
-    <link href="Scripts/Table/datatables.min.css" rel="stylesheet" />
-
-    <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
+    <link href="Scripts/Table/bootstrap.min.css" rel="stylesheet" />  
+    <link href="Scripts/Table/responsive.bootstrap.min.css" rel="stylesheet" />
+       
+        <script src='<%=Page.ResolveUrl("~/Scripts/Table/dataTables.bootstrap.min.js") %>'></script>
+  
 
 
 
@@ -81,22 +87,30 @@
                                 <td><%# Eval("descripcion_corta") %></td>
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
-                            <tfoot>
+                           
                                 <thead>
+                            <tr>
+
+                             <tfoot>
                                     <tr id="filterrow">
                                         <td></td>
                                         <th>Nombre</th>
                                         <th>Descripción Larga</th>
                                         <th>Descripción Corta</th>
                                     </tr>
-                                </thead>
                             </tfoot>
+                            </tr>
+
+                                </thead>
+
                             <tr>
                                 <td>
                                     <asp:Button runat="server" type="button" class="btn btn-primary" value="" OnClick="btnInsertar_Click" Text="Insertar" />
                                 </td>
                             </tr>
                         </table>
+                        <asp:LinkButton ID="btnHabilitar_deshabilitar" runat="server" OnClick="btnHA_DEs_Click" CssClass="hidden"></asp:LinkButton>
+
                         <asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnEliminar_Click" CssClass="hidden"></asp:LinkButton>
                     </div>
                 </div>
@@ -134,7 +148,7 @@
                     sortable: false,
                     "render": function (data, type, full, meta) {
                         var buttonID = full.id_ua;
-                        return '<a id="btnMod" class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
+                        return '<a ID="btnAH"  class="glyphicon  glyphicon-ok" role="button" Onclick="Habilitar_Deshabilitar(' + buttonID + ')"></a><a id="btnMod" class="glyphicon glyphicon-pencil" role="button" Onclick="Modificar(' + buttonID + ')"></a><a id="btnDels" class="glyphicon glyphicon-trash" role="button" Onclick="Eliminar(' + buttonID + ')"></a>';
                     }
                 },            
         { 'data': 'nombre_ua' },
@@ -229,6 +243,10 @@
         };
 
         function Habilitar_Deshabilitar(idSeleccionado) {
+            document.getElementById("<%=hdIdUA.ClientID%>").value = id;
+         
+
+            document.getElementById("<%=btnHabilitar_deshabilitar.ClientID%>").click();
 
         }; 
     </script>
