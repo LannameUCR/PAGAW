@@ -117,7 +117,7 @@
                                         <a href='<%=Page.ResolveUrl("~/Administracion/GestionarParametros.aspx") %>'>Gestionar Parámetros</a>
                                     </li>
                                     <li class="dropdown" aria-expanded="true">
-                                        <a id="BtnBackupRestore" runat="server" onServerClick="BtnBackupRestore_Click">Respaldar / Restaurar sistema</a>
+                                        <a id="BtnBackupRestore" runat="server" onServerClick="BtnBackupRestore_Click">Backup / Restore</a>
                                     </li>                                          
                                 </ul>
                             </div>

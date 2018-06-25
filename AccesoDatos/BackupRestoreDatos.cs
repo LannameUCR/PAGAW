@@ -97,48 +97,69 @@ namespace AccesoDatos
             string zipPathZIP = @"c:\FullBackupPAGAW\ZIP.zip";
             string zipPathPAQUETE = @"c:\FullBackupPAGAW\PAQUETE.zip";
 
+            string backupPath = @"c:\FullBackupPAGAW";
+
             try
             {
-                //Se eliminan las carpetas restauradas para poder restaurarlas de nuevo
-                if (System.IO.Directory.Exists(pathImage) && System.IO.Directory.Exists(pathZIP) && System.IO.Directory.Exists(pathPaquete))
+                //Se obtiene la ruta de la carpeta backup
+                DirectoryInfo carpeta = new DirectoryInfo(backupPath);
+
+                //Se determina si existe un backup
+                if (System.IO.Directory.Exists(backupPath))
                 {
-                    System.IO.Directory.Delete(pathImage, true);
-                    System.IO.Directory.Delete(pathZIP, true);
-                    System.IO.Directory.Delete(pathPaquete, true);
+                    //Se determina si el backup tiene datos
+                    if (carpeta.GetFiles().Length > 0)
+                    {
+                        //Se eliminan las carpetas restauradas para poder restaurarlas de nuevo
+                        if (System.IO.Directory.Exists(pathImage) && System.IO.Directory.Exists(pathZIP) && System.IO.Directory.Exists(pathPaquete))
+                        {
+                            System.IO.Directory.Delete(pathImage, true);
+                            System.IO.Directory.Delete(pathZIP, true);
+                            System.IO.Directory.Delete(pathPaquete, true);
+                        }
+
+                        //Se crea la parte de restore
+                        System.IO.Directory.CreateDirectory(pathRestore);
+
+                        //Se desconprime las imágenes de backup en la carpeta de restore
+                        ZipFile.ExtractToDirectory(zipPathImage, pathRestore);
+
+                        //Se mueve el contenido de la carpeta de restore a la carpeta original de las imágenes
+                        System.IO.Directory.Move(pathRestore, pathImage);
+
+                        //Se desconprime los CÓDIGO ZIP de backup en la carpeta de restore
+                        ZipFile.ExtractToDirectory(zipPathZIP, pathRestore);
+
+                        //Se mueve el contenido de la carpeta de restore a la carpeta original de los CÓDIGO ZIP
+                        System.IO.Directory.Move(pathRestore, pathZIP);
+
+                        //Se desconprime los archivos de PAQUETE DE INSTALACIÓN de backup en la carpeta de restore
+                        ZipFile.ExtractToDirectory(zipPathPAQUETE, pathRestore);
+
+                        //Se mueve el contenido de la carpeta de restore a la carpeta original de los PAQUETE DE INSTALACIÓN
+                        System.IO.Directory.Move(pathRestore, pathPaquete);
+
+                        string conn = WebConfigurationManager.ConnectionStrings["ConnectionStringRestore"].ToString();
+                        SqlConnection cnn = new SqlConnection(conn);
+
+                        SqlCommand cmd = new SqlCommand("restoredb", cnn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cnn.Open();
+
+                        cmd.ExecuteNonQuery();
+
+                        message = "El restore fue realizado exitosamente";
+                    }
+                    else
+                    {
+                        message = "Error !!! La carpeta de backup esta vacía";
+                    }
                 }
-
-                //Se crea la parte de restore
-                System.IO.Directory.CreateDirectory(pathRestore);
-
-                //Se desconprime las imágenes de backup en la carpeta de restore
-                ZipFile.ExtractToDirectory(zipPathImage, pathRestore);
-
-                //Se mueve el contenido de la carpeta de restore a la carpeta original de las imágenes
-                System.IO.Directory.Move(pathRestore, pathImage);
-
-                //Se desconprime los CÓDIGO ZIP de backup en la carpeta de restore
-                ZipFile.ExtractToDirectory(zipPathZIP, pathRestore);
-
-                //Se mueve el contenido de la carpeta de restore a la carpeta original de los CÓDIGO ZIP
-                System.IO.Directory.Move(pathRestore, pathZIP);
-
-                //Se desconprime los archivos de PAQUETE DE INSTALACIÓN de backup en la carpeta de restore
-                ZipFile.ExtractToDirectory(zipPathPAQUETE, pathRestore);
-
-                //Se mueve el contenido de la carpeta de restore a la carpeta original de los PAQUETE DE INSTALACIÓN
-                System.IO.Directory.Move(pathRestore, pathPaquete);
-
-                string conn = WebConfigurationManager.ConnectionStrings["ConnectionStringRestore"].ToString();
-                SqlConnection cnn = new SqlConnection(conn);
-
-                SqlCommand cmd = new SqlCommand("restoredb", cnn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cnn.Open();
-
-                cmd.ExecuteNonQuery();
-
-                message = "El restore fue realizado exitosamente";
+                else
+                {
+                    message = "Error !!! no existe un backup";
+                }
             }
             catch (Exception ex)
             {
