@@ -28,6 +28,15 @@ namespace PAGAW
                     uaNombre.Text = unidadAdministrativa.nombre_ua;
                     uaDescCorta.Text = unidadAdministrativa.descripcion_corta;
                     uaDescLarga.Text = unidadAdministrativa.descripcion_larga;
+
+                    if (unidadAdministrativa.activo == "Activo")
+                    {
+                        checkActivo.Checked = true;
+                    }
+                    else
+                    {
+                        checkActivo.Checked = false;
+                    }
                 }
             } 
         }
@@ -49,8 +58,15 @@ namespace PAGAW
 
         protected void modificar_unidad_Click(object sender, EventArgs e)
         {
+            string activo = "False";
+
+            if (checkActivo.Checked == true)
+            {
+                activo = "True";
+            }
+
             System.Diagnostics.Debug.Write("\n" + val);
-            UnidadAdministrativa unidadAdministrativa = new UnidadAdministrativa(idUA, uaNombre.Text, uaDescCorta.Text, uaDescLarga.Text);
+            UnidadAdministrativa unidadAdministrativa = new UnidadAdministrativa(idUA, uaNombre.Text, uaDescCorta.Text, uaDescLarga.Text, activo);
             System.Diagnostics.Debug.Write("\n" + unidadAdministrativa.id_ua);
             System.Diagnostics.Debug.Write(uaNombre.Text + " ");
             System.Diagnostics.Debug.Write(uaDescCorta.Text + " ");

@@ -12,13 +12,15 @@ namespace Entidades
         public string nombre_ua { get; set; }
         public string descripcion_larga { get; set; }
         public string descripcion_corta { get; set; }
+        public string activo { get; set; }
 
-        public UnidadAdministrativa(int id_ua, string nombre_ua, string descripcion_corta, string descripcion_larga)
+        public UnidadAdministrativa(int id_ua, string nombre_ua, string descripcion_corta, string descripcion_larga, string activo)
         {
             this.id_ua = id_ua;
             this.nombre_ua = nombre_ua;
             this.descripcion_corta = descripcion_corta;
             this.descripcion_larga = descripcion_larga;
+            this.activo = activo;
         }
 
         public UnidadAdministrativa() { }

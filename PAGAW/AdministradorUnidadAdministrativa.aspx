@@ -75,6 +75,7 @@
                                     <th>Nombre</th>
                                     <th>Descripcion Larga</th>
                                     <th>Descripcion Corta</th>
+                                    <th>Activo</th>
                                 </tr>
                             </thead>
                             <td><%# Eval("nombre_ua") %></td>
@@ -85,6 +86,7 @@
                                 <td><%# Eval("descripcion_larga") %></td>
                                 <td><%-- Fila para la busqueda en el footer --%></td>
                                 <td><%# Eval("descripcion_corta") %></td>
+                                <td><%# Eval("activo") %></td>
                             </tr>
                             <%-- Fila para la busqueda en el footer --%>
                            
@@ -97,6 +99,7 @@
                                         <th>Nombre</th>
                                         <th>Descripción Larga</th>
                                         <th>Descripción Corta</th>
+                                        <th>activo</th>
                                     </tr>
                             </tfoot>
                             </tr>
@@ -154,6 +157,7 @@
         { 'data': 'nombre_ua' },
         { 'data': 'descripcion_larga' },
         { 'data': 'descripcion_corta' },
+        { 'data': 'activo' },
   
             ],
             "rowCallback": function (row, data, index) {

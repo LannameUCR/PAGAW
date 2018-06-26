@@ -21,6 +21,9 @@
                     <asp:Label runat="server" Text="Descripción larga" style="font-weight: bold;"   />
                     <asp:TextBox ID="uaDescLarga" runat="server" TextMode="MultiLine" Rows="5" style="margin: 0 0;" CssClass="form-control" Width="30%"/>
                     <br/><br/>
+                    <asp:CheckBox ID="checkActivo" runat="server" /> &nbsp&nbsp&nbsp
+                    <asp:Label ID="lblActivo" runat="server" Text="Activo"></asp:Label>
+                    <br/><br/>
                     <asp:Button runat="server" Text="Modificar unidad" CssClass="btn btn-primary" OnClick="modificar_unidad_Click"/>
                     <asp:Button runat="server" Text="Cancelar" CssClass="btn btn-default" OnClick="cancelarOperacion_Click" style="color: white; background-color:red;"/>
                 </div>

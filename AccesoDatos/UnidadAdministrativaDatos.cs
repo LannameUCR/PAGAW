@@ -38,6 +38,16 @@ namespace AccesoDatos
                 ua.nombre_ua = reader["nombre_ua"].ToString();
                 ua.descripcion_corta = reader["descripcion_corta"].ToString();
                 ua.descripcion_larga = reader["descripcion_larga"].ToString();
+
+                if (reader["activo"].ToString() == "True")
+                {
+                    ua.activo = "Activo";
+                }
+                else
+                {
+                    ua.activo = "Inactivo";
+                }
+                
                 listaUAs.Add(ua);
                 hashUA.Add(ua.id_ua, ua);
             }
@@ -92,6 +102,15 @@ namespace AccesoDatos
             cmd.Parameters.Add("nombre", SqlDbType.NVarChar).Value = unidadAdministrativa.nombre_ua;
             cmd.Parameters.Add("descripcion_larga", SqlDbType.NVarChar).Value = unidadAdministrativa.descripcion_larga;
             cmd.Parameters.Add("descripcion_corta", SqlDbType.NVarChar).Value = unidadAdministrativa.descripcion_corta;
+
+            if (unidadAdministrativa.activo == "True")
+            {
+                cmd.Parameters.Add("activo", SqlDbType.Bit).Value = 1;
+            }
+            else
+            {
+                cmd.Parameters.Add("activo", SqlDbType.Bit).Value = 0;
+            }
 
             sqlConnection.Open();
 

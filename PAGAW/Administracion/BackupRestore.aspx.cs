@@ -14,7 +14,7 @@ namespace PAGAW.Administracion
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           // lblMenssage.Text = "El restore fue realizado exitosamente";
         }
 
         protected void btnBackup_Click(object sender, EventArgs e)
